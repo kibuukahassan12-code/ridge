@@ -3,6 +3,10 @@ import { z } from "zod";
 import { db } from "@/db";
 import { contactMessages } from "@/db/schema";
 
+// Force this route to be evaluated at runtime, not build time,
+// so the database module is not imported during the build.
+export const dynamic = "force-dynamic";
+
 const contactSchema = z.object({
   fullName: z.string().min(2).max(160),
   email: z.string().email(),

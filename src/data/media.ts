@@ -13,6 +13,9 @@ export const media = {
   ],
   tea: [
     "/images/dsvgtdh.jpg",
+    "https://images.pexels.com/photos/230498/pexels-photo-230498.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+    "https://images.pexels.com/photos/39347/tea-plantation-tea-leaves-tea-39347.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+    "https://images.pexels.com/photos/4113466/pexels-photo-4113466.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
   ],
   craterLakes: [
     "/images/Crater-Lake-Tour.jpg",
