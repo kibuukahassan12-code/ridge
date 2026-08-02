@@ -1,0 +1,1 @@
+const sharp = require('sharp'); sharp('public/images/logo.png').resize(5, 5).raw().toBuffer((err, data, info) => { if(err) throw err; const colors = new Set(); for(let i = 0; i < data.length; i += info.channels) { if(info.channels === 4 && data[i+3] === 0) continue; colors.add(data[i] + ',' + data[i+1] + ',' + data[i+2]); } console.log(Array.from(colors)); });
