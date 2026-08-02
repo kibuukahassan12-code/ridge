@@ -25,10 +25,17 @@ export default function WelcomeSection() {
           </Reveal>
           <Reveal index={3}>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-forest-800/80">
-              Five kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda&apos;s Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
+              Five kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda's Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
             </p>
           </Reveal>
-          <Reveal index={4} className="mt-10 flex flex-wrap items-center gap-6">
+          <Reveal index={4}>
+            <div className="mt-6 max-w-xl rounded-2xl border border-gold-500/30 bg-ivory-100 p-6">
+              <p className="text-lg leading-relaxed text-forest-800/80">
+                <span className="font-medium text-forest-950">Ridge is the only place in the world</span> where you can observe the natural border — the Rwenzori Mountains Range — of two countries, Uganda and the Democratic Republic of Congo, for hundreds of kilometres from the comfort of your room. The hotel has a spectacular view of the range from Bundibugyo to Kasese, and even the highest snow peak, Margherita, can be seen when the weather is clear. The other side of the Rwenzoris is the DRC.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal index={5} className="mt-10 flex flex-wrap items-center gap-6">
             <MagneticButton href="/about" variant="ghost" className="!px-0 !py-0 text-forest-950">
               Our Story →
             </MagneticButton>

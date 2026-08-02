@@ -27,7 +27,7 @@ export default function EventsSection() {
               image={media.weddings[2]}
               tag="Weddings & Celebrations"
               title="Say “I do” beneath the Rwenzoris"
-              copy="Our landscaped gardens have hosted celebrations from intimate ceremonies to 200-guest receptions, with in-house catering, décor coordination and accommodation blocks for the whole wedding party."
+              copy="Ridge Hotel is ideal for honeymooners and wedding receptions in our vast gardens that can seat over 3,000 guests. We host Kuhingira (give-aways) and other big functions with in-house catering, décor coordination and accommodation blocks for the whole wedding party."
               href="/weddings"
               cta="Plan Your Wedding"
             />
@@ -37,7 +37,7 @@ export default function EventsSection() {
               image={media.conference[1]}
               tag="Conferences & Meetings"
               title={`Seat ${site.conferenceCapacity} delegates in comfort`}
-              copy="A dedicated conference hall with flexible theatre, classroom and boardroom layouts, standard AV equipment and full-service catering — set against the backdrop of the Rwenzori Mountains."
+              copy="A dedicated conference hall with flexible theatre, classroom and boardroom layouts, standard AV equipment and full-service catering — also available for private meetings, set against the backdrop of the Rwenzori Mountains."
               href="/conference"
               cta="Plan Your Event"
             />

@@ -24,7 +24,7 @@ export default function DiscoverSection() {
             </Reveal>
             <Reveal index={2}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-ivory-100/75">
-                Explore the legendary Crater Lakes, the bubbling Semuliki Hot Springs, the mystical Amabere ga Nyina Mwiru caves, and the natural habitat of Chimp Island. We also offer exclusive access for our guests to tour the region's sweeping organic tea estates and plantations. Meanwhile, closer to home, the safely distanced baboon lock ensures that local resident baboons can occasionally wander up the forested slopes around the hotel for peaceful, natural encounters. Look out for the beautiful migratory birds and the Crested Crane, Uganda's national symbol, all within an easy drive from your room. Our concierge arranges every permit, guide, and transfer.
+                Situated in a posh area of Fort Portal, Ridge Hotel is within a short drive of every major tourist attraction in Western Uganda — the Rwenzori Mountains, the chimpanzee natural forest habitat of Kibale, over 35 crater lakes, the Sempaya Hot Springs, natural tea estates, and the Amabere Ga Nyina Mwiru caves with their legendary stalagmites and stalactites. Mountain climbing, bird watching including the rare Crested Cranes — which pair for life, remaining single forever if their partner dies — are all within easy reach. Our concierge arranges every permit, guide, and transfer.
               </p>
             </Reveal>
           </div>
