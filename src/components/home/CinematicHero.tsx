@@ -16,19 +16,19 @@ type Scene = {
 
 const scenes: Scene[] = [
   {
-    image: media.gardenEntrance[0],
+    image: "/images/hero-scene-1.png",
     kicker: "Uganda's Pearl of the West",
     title: "Arrive at Ridge Hotel",
     copy: "Your gateway to Uganda's most extraordinary landscapes — blooming lawns, open skies, and the warmth of true Ugandan hospitality.",
   },
   {
-    image: media.lobby[0],
+    image: "/images/hero-scene-2.png",
     kicker: "Where Uganda welcomes the world",
     title: "Welcomed, Warmly",
     copy: "Timber, ivory linen and authentic Toro craft — a sanctuary rooted in Ugandan culture, where every arrival feels like coming home.",
   },
   {
-    image: media.rooms[0],
+    image: "/images/hero-scene-3.png",
     kicker: "Your balcony awaits",
     title: "Thirty-Four Rooms, One Unforgettable View",
     copy: "Wake to the snow-capped peaks of the Rwenzori Mountains and set out into the wild heart of Uganda waiting beyond the gate.",
