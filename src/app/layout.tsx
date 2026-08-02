@@ -1,29 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { site } from "@/data/site";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-elegant",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -122,7 +103,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${playfair.variable}`}>
+    <html lang="en">
       <body className="bg-ivory-100 font-sans text-forest-950 antialiased overflow-x-hidden">
         <script
           type="application/ld+json"

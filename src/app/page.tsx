@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CinematicHero from "@/components/home/CinematicHero";
+import VideoShowcase from "@/components/home/VideoShowcase";
 import WelcomeSection from "@/components/home/WelcomeSection";
 import RoomsShowcase from "@/components/home/RoomsShowcase";
 import DiningSection from "@/components/home/DiningSection";
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <>
       <CinematicHero />
+      <VideoShowcase />
       <WelcomeSection />
       <RoomsShowcase />
       <DiningSection />
