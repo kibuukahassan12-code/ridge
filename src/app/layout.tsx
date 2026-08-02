@@ -56,10 +56,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: "https://images.pexels.com/photos/5707129/pexels-photo-5707129.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1260&w=1600",
+        url: "/images/about-hotel.jpg",
         width: 1600,
         height: 1260,
-        alt: "Sunrise over the Rwenzori Mountains, Uganda",
+        alt: "Ridge Hotel, Fort Portal, Uganda",
       },
     ],
   },

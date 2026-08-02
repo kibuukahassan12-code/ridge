@@ -1,10 +1,10 @@
-// Centralised, curated photography library for the Ridge Hotel experience.
-// All URLs point to licensed stock photography chosen to match the real
-// character of Ridge Hotel (Fort Portal, Rwenzori foothills, gardens,
-// conference hall, bar and outdoor event lawns) until proprietary photography
-// is supplied by the property.
+// Centralised photography library for the Ridge Hotel experience.
+// Hotel area and garden images are real photographs from the property.
+// Tourist site / experience images use licensed stock photography
+// until proprietary photography of those destinations is supplied.
 
 export const media = {
+  // ── Tourist sites (stock photography) ──────────────────────
   mountains: [
     "/images/dgfdhjyi.jpg",
     "/images/dgfdhjyi.jpg",
@@ -22,58 +22,6 @@ export const media = {
     "/images/Crater-Lake-Tour.jpg",
     "/images/Crater-Lake-Tour.jpg",
     "/images/Crater-Lake-Tour.jpg",
-  ],
-  gardenEntrance: [
-    "/images/media__1785237626798.jpg",
-    "https://images.pexels.com/photos/297983/pexels-photo-297983.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/30005391/pexels-photo-30005391.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/35155695/pexels-photo-35155695.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/garden-cottage.jpg",
-    "/images/garden-room-block.jpg",
-  ],
-  lobby: [
-    "/images/media__1785237627213.jpg",
-    "/images/gallery-hero.png",
-    "https://images.pexels.com/photos/17001787/pexels-photo-17001787.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/19689237/pexels-photo-19689237.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-  ],
-  rooms: [
-    "/images/media__1785237621275.jpg",
-    "https://images.pexels.com/photos/26859049/pexels-photo-26859049.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/30816307/pexels-photo-30816307.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/2346091/pexels-photo-2346091.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/20666872/pexels-photo-20666872.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/36749692/pexels-photo-36749692.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/family-twin-room.jpg",
-    "/images/executive-suite.jpg",
-    "/images/garden-deluxe-room.jpg",
-  ],
-  dining: [
-    "/images/media__1785237627026.jpg",
-    "/images/ridge-terrace-restaurant.jpeg",
-    "https://images.pexels.com/photos/24433378/pexels-photo-24433378.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/cdfdv.png",
-    "/images/private-dining.jpeg",
-    "/images/terrace-restaurant-seating.jpg",
-    "/images/garden-terrace.jpg",
-  ],
-  pool: [
-    "https://images.pexels.com/photos/20639392/pexels-photo-20639392.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/37240654/pexels-photo-37240654.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/20651220/pexels-photo-20651220.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/14024957/pexels-photo-14024957.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-  ],
-  weddings: [
-    "/images/711A6722.JPG",
-    "https://images.pexels.com/photos/19869791/pexels-photo-19869791.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/wedding-garden-lawn.jpg",
-    "https://images.pexels.com/photos/19024675/pexels-photo-19024675.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-  ],
-  conference: [
-    "https://images.pexels.com/photos/31107445/pexels-photo-31107445.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/conference-hall.jpg",
-    "https://images.pexels.com/photos/31107325/pexels-photo-31107325.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "/images/meeting-room.jpg",
   ],
   chimps: [
     "https://images.pexels.com/photos/1238346/pexels-photo-1238346.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
@@ -103,6 +51,64 @@ export const media = {
     "/images/karuzika-palace.jpg",
     "https://images.pexels.com/photos/30253011/pexels-photo-30253011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
   ],
+  sunset: [
+    "https://images.pexels.com/photos/35480843/pexels-photo-35480843.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+    "https://images.pexels.com/photos/34631550/pexels-photo-34631550.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+    "https://images.pexels.com/photos/314946/pexels-photo-314946.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+  ],
+
+  // ── Hotel areas & gardens (real hotel photography) ────────
+  gardenEntrance: [
+    "/images/media__1785237626798.jpg",
+    "/images/ridge-hotel-entrance-sign.png",
+    "/images/garden-terrace.jpg",
+    "/images/about-hotel.jpg",
+    "/images/garden-cottage.jpg",
+    "/images/garden-room-block.jpg",
+  ],
+  lobby: [
+    "/images/media__1785237627213.jpg",
+    "/images/gallery-hero.png",
+    "/images/hero-new.png",
+  ],
+  rooms: [
+    "/images/media__1785237621275.jpg",
+    "/images/rooms-hero.jpg",
+    "/images/executive-suite.jpg",
+    "/images/family-twin-room.jpg",
+    "/images/garden-deluxe-room.jpg",
+    "/images/garden-cottage.jpg",
+    "/images/garden-room-block.jpg",
+    "/images/about-hotel.jpg",
+    "/images/ridge-hotel-entrance-sign.png",
+  ],
+  dining: [
+    "/images/media__1785237627026.jpg",
+    "/images/ridge-terrace-restaurant.jpeg",
+    "/images/cdfdv.png",
+    "/images/terrace-restaurant-seating.jpg",
+    "/images/private-dining.jpeg",
+    "/images/garden-terrace.jpg",
+    "/images/restaurant-indoor-seating.jpg",
+  ],
+  pool: [
+    "/images/garden-terrace.jpg",
+    "/images/palm-lawn.jpg",
+    "/images/garden-room-block.jpg",
+    "/images/about-hotel.jpg",
+  ],
+  weddings: [
+    "/images/711A6722.JPG",
+    "/images/wedding-garden-lawn.jpg",
+    "/images/garden-terrace.jpg",
+    "/images/palm-lawn.jpg",
+  ],
+  conference: [
+    "/images/conference-hall.jpg",
+    "/images/meeting-room.jpg",
+    "/images/conference-hall.jpg",
+    "/images/meeting-room.jpg",
+  ],
   sagoPalm: [
     "/images/sago-palm.jpg",
   ],
@@ -110,13 +116,8 @@ export const media = {
     "/images/palm-lawn.jpg",
   ],
   spa: [
-    "https://images.pexels.com/photos/6186740/pexels-photo-6186740.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/6629612/pexels-photo-6629612.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/6629605/pexels-photo-6629605.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-  ],
-  sunset: [
-    "https://images.pexels.com/photos/35480843/pexels-photo-35480843.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/34631550/pexels-photo-34631550.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
-    "https://images.pexels.com/photos/314946/pexels-photo-314946.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400",
+    "/images/garden-terrace.jpg",
+    "/images/palm-lawn.jpg",
+    "/images/sago-palm.jpg",
   ],
 } as const;

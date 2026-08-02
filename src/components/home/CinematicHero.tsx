@@ -66,7 +66,6 @@ export default function CinematicHero() {
     setActive(idx);
   });
 
-  const introOpacity = useTransform(scrollYProgress, [0, 0.03, 0.92, 1], [1, 1, 1, 0]);
   const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
 
   return (
@@ -110,17 +109,6 @@ export default function CinematicHero() {
             </span>
           ))}
         </div>
-
-        {/* Intro headline overlay, fades at scroll start */}
-        <motion.div
-          style={{ opacity: introOpacity }}
-          className="pointer-events-none absolute inset-x-0 top-[18%] flex flex-col items-center px-6 text-center"
-        >
-          <p className="kicker mb-5 text-gold-300">Ridge Hotel · Uganda's Pearl of the West</p>
-          <h1 className="max-w-4xl text-balance font-elegant text-[clamp(4rem,9vw,8rem)] leading-[1.1] text-gradient-original py-4">
-            A home where passion meets class
-          </h1>
-        </motion.div>
 
         <motion.div
           style={{ opacity: scrollHintOpacity }}
