@@ -64,14 +64,13 @@ function EventCard({
   cta: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-[1.75rem]">
-      <div className="relative aspect-[4/5] w-full sm:aspect-[16/11]">
+    <div className="group overflow-hidden rounded-[1.75rem] bg-forest-900">
+      <div className="relative aspect-[4/5] w-full sm:aspect-[16/11] overflow-hidden">
         <Image src={image} alt={tag} fill sizes="(min-width:1024px) 45vw, 90vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-forest-950/10" />
       </div>
-      <div className="absolute inset-x-0 bottom-0 p-8">
+      <div className="p-8">
         <p className="kicker text-gold-300">{tag}</p>
-        <h3 className="mt-3 max-w-md font-display text-2xl leading-snug sm:text-3xl">{title}</h3>
+        <h3 className="mt-3 max-w-md font-display text-2xl leading-snug sm:text-3xl text-ivory-100">{title}</h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory-100/75">{copy}</p>
         <MagneticButton href={href} variant="outline" className="mt-6 border-ivory-100/40">
           {cta}

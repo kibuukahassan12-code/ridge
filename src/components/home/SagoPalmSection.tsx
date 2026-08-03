@@ -51,7 +51,7 @@ export default function SagoPalmSection() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
               <Image
-                src={media.sagoPalm[0]}
+                src="/images/711A6758.JPG"
                 alt="Sago palm cycad growing beside the stone terrace wall in the gardens of Ridge Hotel"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"

@@ -11,9 +11,9 @@ const features = [
     image: media.conference[3],
   },
   {
-    title: "Garden Cottage",
-    copy: "A self-contained cottage with its own veranda, opening straight onto the lawns for guests who want space and seclusion.",
-    image: media.gardenEntrance[4],
+    title: "Bar & Terrace",
+    copy: "The Ridge Bar spills onto a sweeping open terrace where sundowners meet highland air — the perfect spot to unwind as the Rwenzoris fade from gold to violet.",
+    image: "/images/711A6741.JPG",
   },
   {
     title: "Garden-Facing Rooms",

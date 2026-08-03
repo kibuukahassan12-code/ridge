@@ -41,7 +41,7 @@ export default function PalmGardenSection() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
               <Image
-                src={media.palmLawn[0]}
+                src="/images/711A6675.JPG"
                 alt="Palm trunks rising around the wrought-iron viewing deck on the garden lawn at Ridge Hotel"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
