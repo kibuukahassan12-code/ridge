@@ -33,7 +33,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 1 Child",
     view: "Rwenzori Mountains & Gardens",
     price: 120,
-    images: ["/images/rooms-hero.jpg", "/images/garden-deluxe-room.jpg", "/images/media__1785237621275.jpg"],
+    images: ["/images/rooms-hero.jpg", "/images/711A6682.JPG", "/images/711A6642.JPG"],
     amenities: [
       "Private balcony with mountain view",
       "En-suite hot water bathroom",
