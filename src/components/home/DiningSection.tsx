@@ -12,10 +12,10 @@ export default function DiningSection() {
         <Reveal className="order-2 lg:order-1">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-              <Image src={media.dining[5]} alt="Ridge Terrace Restaurant" fill className="object-cover" sizes="(min-width:1024px) 22vw, 45vw" />
+              <Image src="/images/711A6537.JPG" alt="Ridge Terrace Restaurant" fill className="object-cover" sizes="(min-width:1024px) 22vw, 45vw" />
             </div>
             <div className="relative mt-10 aspect-[3/4] overflow-hidden rounded-2xl">
-              <Image src={media.dining[6]} alt="Garden terrace beside The Ridge Bar" fill className="object-cover" sizes="(min-width:1024px) 22vw, 45vw" />
+              <Image src="/images/711A6665.JPG" alt="Garden terrace beside The Ridge Bar" fill className="object-cover" sizes="(min-width:1024px) 22vw, 45vw" />
             </div>
           </div>
         </Reveal>
