@@ -62,7 +62,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 1 Child",
     view: "Landscaped Gardens",
     price: 95,
-    images: ["/images/garden-deluxe-room.jpg", "/images/garden-cottage.jpg", "/images/garden-room-block.jpg"],
+    images: ["/images/garden-deluxe-room.jpg", "/images/711A6646.JPG", "/images/711A6652.JPG"],
     amenities: [
       "Garden-facing window seating",
       "En-suite hot water bathroom",
@@ -84,14 +84,14 @@ export const rooms: Room[] = [
     longDescription: [
       "Ridge Hotel's Executive Suite is a residence in miniature — a separate sitting area for morning coffee and evening conversation, a dressing area, and a wraparound balcony that captures both the gardens below and the Rwenzori ridgeline beyond.",
       "It is the room of choice for honeymooners extending a wedding celebration held in our gardens, visiting dignitaries, and long-stay guests exploring the whole of Western Uganda from a single, comfortable base.",
-      "Every detail, from the linen to the locally sourced amenities, has been considered to make the Executive Suite feel less like a hotel room and more like a home in the hills.",
+      "Every detail, from the linen to the locally sourced amenities, has been considered to make the Executive Suite feel less like a home in the hills.",
     ],
     size: "42 m²",
     bed: "1 King bed + Sofa lounge",
     occupancy: "2 Adults, 2 Children",
     view: "Panoramic Mountain & Garden View",
     price: 175,
-    images: ["/images/executive-suite.jpg", "/images/rooms-hero.jpg", "/images/media__1785237621275.jpg"],
+    images: ["/images/executive-suite.jpg", "/images/711A6609.JPG", "/images/711A6642.JPG"],
     amenities: [
       "Separate lounge & dressing area",
       "Wraparound private balcony",
