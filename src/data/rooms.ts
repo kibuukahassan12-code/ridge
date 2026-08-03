@@ -33,7 +33,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 1 Child",
     view: "Rwenzori Mountains & Gardens",
     price: 120,
-    images: [media.rooms[0], media.rooms[3], media.rooms[4]],
+    images: ["/images/rooms-hero.jpg", "/images/garden-deluxe-room.jpg", "/images/media__1785237621275.jpg"],
     amenities: [
       "Private balcony with mountain view",
       "En-suite hot water bathroom",
@@ -62,7 +62,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 1 Child",
     view: "Landscaped Gardens",
     price: 95,
-    images: [media.rooms[8], media.rooms[5], media.rooms[2]],
+    images: ["/images/garden-deluxe-room.jpg", "/images/garden-cottage.jpg", "/images/garden-room-block.jpg"],
     amenities: [
       "Garden-facing window seating",
       "En-suite hot water bathroom",
@@ -91,7 +91,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 2 Children",
     view: "Panoramic Mountain & Garden View",
     price: 175,
-    images: [media.rooms[7], media.rooms[0], media.rooms[3]],
+    images: ["/images/executive-suite.jpg", "/images/rooms-hero.jpg", "/images/media__1785237621275.jpg"],
     amenities: [
       "Separate lounge & dressing area",
       "Wraparound private balcony",
@@ -109,19 +109,19 @@ export const rooms: Room[] = [
     name: "Family Twin Room",
     tagline: "Room to roam, together",
     description:
-      "Two connected sleeping zones designed for families exploring Kibale Forest and the crater lakes together, with easy access to the gardens and pool terrace.",
+      "Two connected sleeping zones with double beds designed for families exploring Kibale Forest and the crater lakes together, with easy access to the gardens and pool terrace.",
     longDescription: [
-      "The Family Twin Room offers a flexible sleeping arrangement across a comfortable, generously sized layout — ideal for parents travelling with children before or after a day of chimpanzee tracking or a crater lake picnic.",
+      "The Family Twin Room offers a flexible sleeping arrangement across a comfortable layout with double beds — ideal for parents travelling with children before or after a day of chimpanzee tracking or a crater lake picnic.",
       "Located close to the gardens and pool terrace, this room keeps young travellers within easy reach of open lawns to run in, while parents relax on the veranda with a view of the Rwenzori foothills.",
     ],
     size: "32 m²",
-    bed: "1 Queen + 2 Single beds",
+    bed: "2 Double beds",
     occupancy: "2 Adults, 2 Children",
     view: "Garden View",
     price: 140,
-    images: [media.rooms[6], media.rooms[1], media.rooms[5]],
+    images: ["/images/family-twin-room.jpg", "/images/garden-deluxe-room.jpg", "/images/garden-cottage.jpg"],
     amenities: [
-      "Flexible family sleeping configuration",
+      "Flexible family sleeping configuration with double beds",
       "En-suite hot water bathroom",
       "Complimentary high-speed Wi-Fi",
       "Flat-screen satellite TV",

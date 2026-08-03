@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { galleryImages } from "@/data/gallery";
-
-const categories = ["All", ...Array.from(new Set(galleryImages.map((img) => img.category)))];
+import { galleryCategories, galleryImages } from "@/data/gallery";
 
 export default function GalleryGrid() {
   const [active, setActive] = useState("All");
@@ -14,7 +12,7 @@ export default function GalleryGrid() {
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-3">
-        {categories.map((cat) => (
+        {galleryCategories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
