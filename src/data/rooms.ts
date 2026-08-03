@@ -119,7 +119,7 @@ export const rooms: Room[] = [
     occupancy: "2 Adults, 2 Children",
     view: "Garden View",
     price: 140,
-    images: ["/images/family-twin-room.jpg", "/images/garden-deluxe-room.jpg", "/images/garden-cottage.jpg"],
+    images: ["/images/family-twin-room.jpg", "/images/711A6591.JPG", "/images/711A6602.JPG"],
     amenities: [
       "Flexible family sleeping configuration with double beds",
       "En-suite hot water bathroom",
