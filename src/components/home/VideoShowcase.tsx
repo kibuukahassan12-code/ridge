@@ -78,9 +78,13 @@ export default function VideoShowcase() {
           <iframe
             src={VIMEO_EMBED_URL}
             className="relative z-10 h-full w-full"
-            allow="autoplay; fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             allowFullScreen
             title="Ridge Hotel cinematic video"
+            // @ts-expect-error – playsinline is not in React's HTMLIFrameElement types but is required for iOS Safari autoplay
+            playsInline
+            webkit-playsinline="true"
+            frameBorder="0"
           />
         )}
       </div>

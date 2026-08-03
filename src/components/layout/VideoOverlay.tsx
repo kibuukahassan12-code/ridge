@@ -41,12 +41,16 @@ export default function VideoOverlay() {
       <iframe
         src={VIMEO_EMBED_URL}
         className="h-full w-full"
-        allow="autoplay; fullscreen; picture-in-picture"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
         allowFullScreen
         title="Ridge Hotel cinematic video"
         onLoad={() => setReady(true)}
         onError={() => setVisible(false)}
         onPlay={() => setPlaying(true)}
+        // @ts-expect-error – playsinline is not in React's HTMLIFrameElement types but is required for iOS Safari autoplay
+        playsInline
+        webkit-playsinline="true"
+        frameBorder="0"
       />
     </div>
   );

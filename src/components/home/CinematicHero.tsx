@@ -95,12 +95,17 @@ function VimeoIntro({ onDone }: { onDone: () => void }) {
     >
       <iframe
         ref={iframeRef}
-        src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&muted=1&controls=0&loop=0&background=1&transparent=0`}
-        allow="autoplay; fullscreen; picture-in-picture"
+        src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&muted=1&controls=0&loop=0&background=1&transparent=0&playsinline=1`}
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        allowFullScreen
         onLoad={handleLoad}
         className="absolute inset-0 h-full w-full"
         style={{ border: "none" }}
         title="Ridge Hotel intro"
+        // @ts-expect-error – playsinline is not in React's HTMLIFrameElement types but is required for iOS Safari autoplay
+        playsInline
+        webkit-playsinline="true"
+        frameBorder="0"
       />
       {/* subtle skip hint */}
       <motion.button
