@@ -121,8 +121,8 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
               </MagneticButton>
               <p className="mt-4 text-center text-xs text-forest-800/50">
                 Or WhatsApp us at{" "}
-                <a href="https://wa.me/256776477577" className="text-gold-600 underline">
-                  +256 776 477 577
+                <a href="https://wa.me/256777483169" className="text-gold-600 underline">
+                  0777483169
                 </a>
               </p>
 

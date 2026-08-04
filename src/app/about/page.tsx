@@ -35,7 +35,7 @@ const values = [
 
 const timeline = [
   { year: "2001", event: "Construction begins on The Ridge, overlooking the Rwenzori foothills." },
-  { year: "2026", event: "Ridge Hotel opens its doors with 23 rooms and a vision of comfort and class." },
+  { year: "2026", event: "Ridge Hotel opens its doors with 24 rooms and a vision of comfort and class." },
   { year: "Late 2026", event: "The conference hall and gardens open, hosting Western Uganda's first large-scale weddings." },
   { year: "Today", event: "Ridge Hotel welcomes travellers, dignitaries and wedding parties from across the world." },
 ];
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <div className="rounded-[1.75rem] border border-ivory-100/15 p-10">
               <Kicker className="text-gold-400">Our Vision</Kicker>
               <p className="mt-6 font-display text-2xl leading-snug">
-                To be recognised as Western Uganda&apos;s definitive address for comfort, celebration and discovery —
+                To be recognised as Western Uganda's definitive address for comfort, celebration and discovery —
                 a hotel as memorable as the mountains it overlooks.
               </p>
             </div>

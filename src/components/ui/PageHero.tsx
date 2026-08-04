@@ -16,7 +16,7 @@ export default function PageHero({
 }) {
   return (
     <section className={`relative isolate flex items-end overflow-hidden ${small ? "h-[52vh] min-h-[420px]" : "h-[78vh] min-h-[560px]"}`}>
-      <Image src={image} alt={title} fill priority sizes="100vw" quality={100} className="object-cover" />
+      <Image src={image} alt={title} fill priority sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/35 to-forest-950/55" />
       <Container className="relative pb-16 text-ivory-100 lg:pb-20">
         <p className="kicker text-gold-300">{kicker}</p>

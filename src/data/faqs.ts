@@ -8,7 +8,7 @@ export const faqCategories = [
       },
       {
         q: "How do I book a room at Ridge Hotel?",
-        a: "You can book directly through our Booking page, email reservations@ridgehotelug.com, call or WhatsApp +256 776 477 577. Direct bookings always receive our best available rate.",
+        a: "You can book directly through our Booking page, email reservations@ridgehotelug.com, call or WhatsApp 0777483169. Direct bookings always receive our best available rate.",
       },
       {
         q: "Do you require a deposit to confirm a booking?",
@@ -25,7 +25,7 @@ export const faqCategories = [
     items: [
       {
         q: "How many rooms does Ridge Hotel have?",
-        a: "Ridge Hotel offers 23 comfortable guest rooms, each with a private balcony, many overlooking the snow-capped peaks of the Rwenzori Mountains.",
+        a: "Ridge Hotel offers 24 comfortable guest rooms, each with a private balcony, many overlooking the snow-capped peaks of the Rwenzori Mountains.",
       },
       {
         q: "Is Wi-Fi available?",

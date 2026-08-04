@@ -14,11 +14,11 @@ export default function RoomsShowcase() {
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div>
             <Reveal>
-              <Kicker className="text-gold-400">Rooms &amp; Suites</Kicker>
+              <Kicker className="text-gold-400">Rooms & Suites</Kicker>
             </Reveal>
             <Reveal index={1}>
               <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08]">
-                Thirty-Four Rooms. One Unforgettable View.
+                Twenty-Four Rooms. One Unforgettable View.
               </h2>
             </Reveal>
             <Reveal index={1.5}>

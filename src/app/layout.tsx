@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     "crater lakes Uganda",
     "Uganda tea estates",
     "Semuliki Hot Springs hotel",
-    "Uganda 5 star hotel",
     "Pearl of Africa hotel",
   ],
   authors: [{ name: "Ridge Hotel" }],

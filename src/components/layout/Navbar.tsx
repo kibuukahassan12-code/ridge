@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Phone, Mail, MapPin, Star, ChevronDown, Calendar } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronDown, Calendar } from "lucide-react";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -41,8 +41,7 @@ export default function Navbar() {
         <div className="mx-auto flex h-9 w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-16">
           <div className="flex min-w-0 items-center gap-4">
             <span className="inline-flex shrink-0 items-center gap-1.5 font-medium uppercase tracking-[0.18em] text-gold-300">
-              <Star className="h-3 w-3 fill-gold-400 text-gold-400" />
-              5-Star Hotel
+              Premier Highland Retreat
             </span>
             <span className="hidden h-3 w-px shrink-0 bg-ivory-100/15 xl:block" />
             <span className="hidden min-w-0 items-center gap-1.5 truncate xl:flex">

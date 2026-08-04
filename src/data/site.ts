@@ -4,9 +4,9 @@ export const site = {
   domain: "ridgehotelug.com",
   url: "https://www.ridgehotelug-preview.com",
   description:
-    "Ridge Hotel is Uganda's premier highland retreat — 34 balconied rooms facing the snow-capped Rwenzori Mountains, a gateway to Uganda's crater lakes, organic tea estates, chimpanzee forests, and one of Africa's last remaining glaciers.",
+    "Ridge Hotel is Uganda's premier highland retreat — 24 balconied rooms facing the snow-capped Rwenzori Mountains, a gateway to Uganda's crater lakes, organic tea estates, chimpanzee forests, and one of Africa's last remaining glaciers.",
   founded: 2026,
-  roomCount: 34,
+  roomCount: 24,
   conferenceCapacity: 100,
   address: {
     line1: "Boma Road, The Ridge",
@@ -22,9 +22,9 @@ export const site = {
   contact: {
     email: "info@ridgehotelug.com",
     reservationsEmail: "reservations@ridgehotelug.com",
-    phone: "+256 776 477 577",
-    phoneDisplay: "+256 776 477 577",
-    whatsapp: "https://wa.me/256776477577",
+    phone: "0777483169",
+    phoneDisplay: "0777483169",
+    whatsapp: "https://wa.me/256777483169",
   },
   social: {
     facebook: "https://facebook.com/ridgehotelug",

@@ -30,7 +30,7 @@ const scenes: Scene[] = [
   {
     image: "/images/hero-scene-3.png",
     kicker: "Your balcony awaits",
-    title: "Thirty-Four Rooms, One Unforgettable View",
+    title: "Twenty-Four Rooms, One Unforgettable View",
     copy: "Wake to the snow-capped peaks of the Rwenzori Mountains and set out into the wild heart of Uganda waiting beyond the gate.",
   },
   {

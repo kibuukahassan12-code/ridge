@@ -15,12 +15,12 @@ export default function WelcomeSection() {
           </Reveal>
           <Reveal index={1}>
             <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
-              Uganda&apos;s 5-Star Gateway to the Rwenzoris
+              Uganda's Gateway to the Rwenzoris
             </h2>
           </Reveal>
           <Reveal index={2}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-800/80">
-              Perched at an altitude of 1,523 metres in the highlands of Western Uganda, Ridge Hotel is your finest base for exploring the Pearl of Africa. Our {site.roomCount} rooms each open onto a private balcony facing the snow-capped Rwenzori Mountains — Uganda&apos;s rooftop, visible from your bed. This is where comfort meets the wild, and every morning begins with a view that reminds you why Uganda is like no other place on earth.
+              Perched at an altitude of 1,523 metres in the highlands of Western Uganda, Ridge Hotel is your finest base for exploring the Pearl of Africa. Our {site.roomCount} rooms each open onto a private balcony facing the snow-capped Rwenzori Mountains — Uganda's rooftop, visible from your bed. This is where comfort meets the wild, and every morning begins with a view that reminds you why Uganda is like no other place on earth.
             </p>
           </Reveal>
           <Reveal index={3}>
