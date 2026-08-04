@@ -2,10 +2,10 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { media } from "@/data/media";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 type Scene = {
   image: string;
@@ -60,6 +60,7 @@ const scenes: Scene[] = [
 export default function CinematicHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -77,12 +78,19 @@ export default function CinematicHero() {
       <section
         ref={containerRef}
         className="relative bg-forest-950"
-        style={{ height: `${scenes.length * 100}vh` }}
+        style={{ height: `${scenes.length * 100}dvh` }}
         aria-label="Cinematic journey from the Rwenzori Mountains to Ridge Hotel"
       >
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div className="sticky top-0 h-dvh w-full overflow-hidden">
           {scenes.map((scene, i) => (
-            <SceneLayer key={scene.image} scene={scene} index={i} total={scenes.length} progress={scrollYProgress} />
+            <SceneLayer
+              key={scene.image}
+              scene={scene}
+              index={i}
+              total={scenes.length}
+              progress={scrollYProgress}
+              reducedMotion={reducedMotion}
+            />
           ))}
 
           {/* Volumetric light + fog overlay to mask transitions */}
@@ -91,11 +99,25 @@ export default function CinematicHero() {
           <FloatingParticles />
 
           {/* Caption layer */}
-          <div className="absolute inset-x-0 bottom-0 top-0 flex flex-col justify-end px-6 pb-24 sm:px-10 lg:px-16 lg:pb-28">
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-16 sm:px-10 lg:px-16 lg:pb-20">
             <div className="mx-auto w-full max-w-[1440px]">
-              {scenes.map((scene, i) => (
-                <Caption key={scene.title} scene={scene} index={i} total={scenes.length} progress={scrollYProgress} />
-              ))}
+              <div className="pointer-events-none relative min-h-[17rem] sm:min-h-[15rem]">
+                {scenes.map((scene, i) => (
+                  <Caption
+                    key={scene.title}
+                    scene={scene}
+                    index={i}
+                    total={scenes.length}
+                    progress={scrollYProgress}
+                    reducedMotion={reducedMotion}
+                  />
+                ))}
+              </div>
+              <div className="mt-8">
+                <MagneticButton href="/booking" className="bg-gold-500 text-forest-950 hover:bg-gold-400">
+                  Book Your Stay
+                </MagneticButton>
+              </div>
             </div>
           </div>
 
@@ -120,12 +142,8 @@ export default function CinematicHero() {
             className="absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 text-ivory-100/80"
           >
             <span className="kicker text-[10px]">Scroll to explore</span>
-            <ChevronDown className="h-5 w-5 animate-bounce" aria-hidden />
+            <ChevronDown className="h-5 w-5 motion-safe:animate-bounce" aria-hidden />
           </motion.div>
-        </div>
-
-        <div className="sr-only">
-          <Link href="/booking">Book your stay at Ridge Hotel</Link>
         </div>
       </section>
     </>
@@ -137,11 +155,13 @@ function SceneLayer({
   index,
   total,
   progress,
+  reducedMotion,
 }: {
   scene: Scene;
   index: number;
   total: number;
   progress: ReturnType<typeof useScroll>["scrollYProgress"];
+  reducedMotion: boolean | null;
 }) {
   const start = index / total;
   const mid = (index + 0.5) / total;
@@ -153,15 +173,18 @@ function SceneLayer({
     [Math.max(0, prevEnd), start, end - 0.02, end],
     [index === 0 ? 1 : 0, 1, 1, index === total - 1 ? 1 : 0]
   );
-  const scale = useTransform(progress, [start, mid, end], [1.12, 1.0, 0.94]);
+  const scale = useTransform(progress, [start, mid, end], [1.05, 1.0, 0.97]);
   const y = useTransform(progress, [start, end], ["0%", "-6%"]);
 
   return (
-    <motion.div className="absolute inset-0 bg-forest-950" style={{ opacity }} aria-hidden={index !== 0}>
-      <motion.div className="absolute inset-0" style={{ scale, y }}>
+    <motion.div className="absolute inset-0 bg-forest-950" style={{ opacity }} aria-hidden>
+      <motion.div
+        className="absolute inset-0"
+        style={reducedMotion ? undefined : { scale, y }}
+      >
         <Image
           src={scene.image}
-          alt={scene.title}
+          alt=""
           fill
           priority={index === 0}
           sizes="100vw"
@@ -179,30 +202,40 @@ function Caption({
   index,
   total,
   progress,
+  reducedMotion,
 }: {
   scene: Scene;
   index: number;
   total: number;
   progress: ReturnType<typeof useScroll>["scrollYProgress"];
+  reducedMotion: boolean | null;
 }) {
   const start = index / total;
   const end = (index + 1) / total;
   const opacity = useTransform(progress, [start, start + 0.06, end - 0.08, end], [0, 1, 1, 0]);
   const y = useTransform(progress, [start, start + 0.06], [26, 0]);
 
+  // The first scene's title doubles as the page's main heading.
+  const Heading = index === 0 ? "h1" : "h2";
+
   return (
-    <motion.div style={{ opacity, y }} className="absolute max-w-2xl">
+    <motion.div
+      style={reducedMotion ? { opacity } : { opacity, y }}
+      className="absolute bottom-0 left-0 max-w-2xl"
+    >
       <p className="kicker mb-4 text-gold-300">{scene.kicker}</p>
-      <h2 className="text-balance font-display text-[clamp(1.8rem,4.4vw,3.4rem)] font-medium leading-[1.08] text-ivory-100">
+      <Heading className="text-balance font-display text-[clamp(1.8rem,4.4vw,3.4rem)] font-medium leading-[1.08] text-ivory-100">
         {scene.title}
-      </h2>
+      </Heading>
       <p className="mt-4 max-w-lg text-base leading-relaxed text-ivory-100/80">{scene.copy}</p>
     </motion.div>
   );
 }
 
 function FloatingParticles() {
+  const reducedMotion = useReducedMotion();
   const particles = Array.from({ length: 18 });
+  if (reducedMotion) return null;
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {particles.map((_, i) => (
