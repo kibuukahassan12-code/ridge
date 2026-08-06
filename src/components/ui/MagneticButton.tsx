@@ -43,7 +43,7 @@ export default function MagneticButton({ href, children, className, variant = "s
     ghost: "text-forest-900 hover:text-gold-600",
   } as const;
 
-  const MotionLink = motion(Link);
+  const MotionLink = motion.create(Link);
 
   return (
     <MotionLink
