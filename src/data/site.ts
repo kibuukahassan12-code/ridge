@@ -4,16 +4,16 @@ export const site = {
   domain: "ridgehotelug.com",
   url: "https://www.ridgehotelug-preview.com",
   description:
-    "Ridge Hotel is Uganda's premier highland retreat — 24 balconied rooms facing the snow-capped Rwenzori Mountains, a gateway to Uganda's crater lakes, organic tea estates, chimpanzee forests, and one of Africa's last remaining glaciers.",
+    "Ridge Hotel is Uganda's premier highland retreat — 21 balconied rooms facing the snow-capped Rwenzori Mountains, a gateway to Uganda's crater lakes, organic tea estates, chimpanzee forests, and one of Africa's last remaining glaciers.",
   founded: 2026,
-  roomCount: 24,
+  roomCount: 21,
   conferenceCapacity: 100,
   address: {
     line1: "Boma Road, The Ridge",
     line2: "Fort Portal, Kabarole District",
     region: "Western Region",
     country: "Uganda",
-    postalNote: "5km west of the Toro Kingdom Palace, walking distance to Fort Portal town centre",
+    postalNote: "2.5km west of the Toro Kingdom Palace, walking distance to Fort Portal town centre",
   },
   geo: {
     lat: 0.6710,
@@ -23,7 +23,9 @@ export const site = {
     email: "info@ridgehotelug.com",
     reservationsEmail: "reservations@ridgehotelug.com",
     phone: "0777483169",
+    phone2: "0795643000",
     phoneDisplay: "0777483169",
+    phoneDisplay2: "0795643000",
     whatsapp: "https://wa.me/256777483169",
   },
   social: {

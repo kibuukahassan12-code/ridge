@@ -145,16 +145,16 @@ export const experiences: Experience[] = [
     slug: "toro-kingdom",
     name: "Toro Kingdom & Karambi Tombs",
     region: "Fort Portal",
-    tagline: "A living kingdom, five kilometres from your room",
+    tagline: "A living kingdom, two and a half kilometres from your room",
     description:
       "Home to the Toro Kingdom's royal palace and the Karambi Royal Tombs, Fort Portal carries centuries of Batooro history and culture within easy reach of Ridge Hotel.",
     longDescription: [
-      "The Toro Kingdom, one of Uganda's four traditional kingdoms, has its seat in Fort Portal, just five kilometres from Ridge Hotel. Guided tours of the palace grounds and the Karambi Royal Tombs tell the story of the Batooro people and their monarchy, restored after Uganda's kingdoms were reinstated in the 1990s.",
+      "The Toro Kingdom, one of Uganda's four traditional kingdoms, has its seat in Fort Portal, just two and a half kilometres from Ridge Hotel. Guided tours of the palace grounds and the Karambi Royal Tombs tell the story of the Batooro people and their monarchy, restored after Uganda's kingdoms were reinstated in the 1990s.",
       "Cultural performances, drumming and traditional dance can be arranged for groups, offering an intimate window into Toro heritage that pairs naturally with an evening at Ridge Hotel's gardens.",
     ],
     image: media.toro[0],
     gallery: [media.toro[1], media.gardenEntrance[0]],
-    distance: "5km from Ridge Hotel",
+    distance: "2.5km from Ridge Hotel",
     duration: "2–3 hours",
     bestFor: ["Culture seekers", "Families", "History lovers"],
     itinerary: [

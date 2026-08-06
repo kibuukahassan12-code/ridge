@@ -51,9 +51,14 @@ export default function Footer() {
           </div>
           <div className="flex items-start gap-3">
             <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-            <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-gold-400">
-              {site.contact.phoneDisplay}
-            </a>
+            <span className="flex flex-col gap-1">
+              <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-gold-400">
+                {site.contact.phoneDisplay}
+              </a>
+              <a href={`tel:${site.contact.phone2.replace(/\s/g, "")}`} className="hover:text-gold-400">
+                {site.contact.phoneDisplay2}
+              </a>
+            </span>
           </div>
           <div className="flex items-start gap-3">
             <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />

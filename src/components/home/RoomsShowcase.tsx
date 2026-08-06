@@ -18,7 +18,7 @@ export default function RoomsShowcase() {
             </Reveal>
             <Reveal index={1}>
               <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08]">
-                Twenty-Four Rooms. One Unforgettable View.
+                Twenty-One Rooms. One Unforgettable View.
               </h2>
             </Reveal>
             <Reveal index={1.5}>

@@ -66,6 +66,14 @@ export default function Navbar() {
               <Phone className="h-3.5 w-3.5 text-gold-400" />
               {site.contact.phoneDisplay}
             </a>
+            <span className="h-3 w-px bg-ivory-100/15" />
+            <a
+              href={`tel:${site.contact.phone2.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-1.5 font-medium text-ivory-100/90 transition-colors hover:text-gold-400"
+            >
+              <Phone className="h-3.5 w-3.5 text-gold-400" />
+              {site.contact.phoneDisplay2}
+            </a>
           </div>
         </div>
       </div>
@@ -249,7 +257,14 @@ export default function Navbar() {
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-300"
                 >
                   <Phone className="h-3.5 w-3.5" />
-                  Call
+                  {site.contact.phoneDisplay}
+                </a>
+                <a
+                  href={`tel:${site.contact.phone2.replace(/\s/g, "")}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-300"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  {site.contact.phoneDisplay2}
                 </a>
               </div>
 

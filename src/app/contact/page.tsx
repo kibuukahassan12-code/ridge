@@ -49,6 +49,10 @@ export default function ContactPage() {
                   <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-gold-600">
                     {site.contact.phoneDisplay}
                   </a>
+                  <br />
+                  <a href={`tel:${site.contact.phone2.replace(/\s/g, "")}`} className="hover:text-gold-600">
+                    {site.contact.phoneDisplay2}
+                  </a>
                 </ContactRow>
               </Reveal>
               <Reveal index={5}>

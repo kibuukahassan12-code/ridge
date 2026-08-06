@@ -13,7 +13,7 @@ import { media } from "@/data/media";
 export const metadata: Metadata = {
   title: "Rooms & Suites",
   description:
-    "Explore Ridge Hotel's 24 rooms and suites in Uganda's Western highlands — private balconies with Rwenzori Mountain views, the natural Uganda-DRC border, and rates that reflect the very best of Ugandan hospitality.",
+    "Explore Ridge Hotel's 21 rooms and suites in Uganda's Western highlands — private balconies with Rwenzori Mountain views, the natural Uganda-DRC border, and rates that reflect the very best of Ugandan hospitality.",
   alternates: { canonical: "/rooms" },
 };
 
@@ -23,7 +23,7 @@ export default function RoomsPage() {
       <PageHero
         image="/images/rooms-hero.jpg"
         kicker="Rooms & Suites"
-        title="Twenty-Four Rooms, Each With a View"
+        title="Twenty-One Rooms, Each With a View"
         copy="Set at 1,523 metres in Uganda's highlands, every room opens onto a private balcony with an uninterrupted view of the Rwenzori Mountains — Uganda's highest and most magnificent natural wonder."
       />
 

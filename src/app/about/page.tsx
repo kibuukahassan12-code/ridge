@@ -35,7 +35,7 @@ const values = [
 
 const timeline = [
   { year: "2001", event: "Construction begins on The Ridge, overlooking the Rwenzori foothills." },
-  { year: "2026", event: "Ridge Hotel opens its doors with 24 rooms and a vision of comfort and class." },
+  { year: "2026", event: "Ridge Hotel opens its doors with 21 rooms and a vision of comfort and class." },
   { year: "Late 2026", event: "The conference hall and gardens open, hosting Western Uganda's first large-scale weddings." },
   { year: "Today", event: "Ridge Hotel welcomes travellers, dignitaries and wedding parties from across the world." },
 ];

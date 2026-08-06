@@ -47,6 +47,32 @@ export default function BookingForm({ defaultRoom }: { defaultRoom?: string }) {
 
   async function onSubmit(values: FormValues) {
     setStatus("loading");
+
+    // Build a formatted WhatsApp message with all client details
+    const lines = [
+      "🏨 *New Reservation Request — Ridge Hotel*",
+      "",
+      `👤 *Name:* ${values.fullName}`,
+      `📧 *Email:* ${values.email}`,
+      values.phone ? `📞 *Phone:* ${values.phone}` : null,
+      values.roomType ? `🛏️ *Room Type:* ${values.roomType}` : null,
+      `📅 *Check-In:* ${values.checkIn}`,
+      `📅 *Check-Out:* ${values.checkOut}`,
+      `👥 *Adults:* ${values.adults}`,
+      `👶 *Children:* ${values.children}`,
+      values.packageName ? `🎁 *Package:* ${values.packageName}` : null,
+      values.promoCode ? `🏷️ *Promo Code:* ${values.promoCode}` : null,
+      values.airportPickup ? "🚗 *Airport Pickup:* Yes" : null,
+      values.message ? `📝 *Notes:* ${values.message}` : null,
+    ].filter(Boolean);
+
+    const message = lines.join("\n");
+    const whatsappUrl = `${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+
+    // Redirect to WhatsApp with the details pre-filled
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    // Also submit to the API for record-keeping (best effort)
     try {
       const res = await fetch("/api/booking", {
         method: "POST",

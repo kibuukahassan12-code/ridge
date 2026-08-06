@@ -9,6 +9,7 @@ import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { getRoomBySlug, rooms } from "@/data/rooms";
 import { experiences } from "@/data/experiences";
+import { site } from "@/data/site";
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
@@ -120,9 +121,13 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
                 Reserve This Room
               </MagneticButton>
               <p className="mt-4 text-center text-xs text-forest-800/50">
-                Or WhatsApp us at{" "}
-                <a href="https://wa.me/256777483169" className="text-gold-600 underline">
-                  0777483169
+                Or call or WhatsApp us at{" "}
+                <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="text-gold-600 underline">
+                  {site.contact.phoneDisplay}
+                </a>{" "}
+                or{" "}
+                <a href={`tel:${site.contact.phone2.replace(/\s/g, "")}`} className="text-gold-600 underline">
+                  {site.contact.phoneDisplay2}
                 </a>
               </p>
 

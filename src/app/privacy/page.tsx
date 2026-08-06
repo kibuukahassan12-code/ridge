@@ -44,8 +44,8 @@ export default function PrivacyPage() {
             contacting us at {site.contact.email}.
           </LegalSection>
           <LegalSection title="7. Contact Us">
-            For questions about this Privacy Policy, please contact Ridge Hotel at {site.contact.email} or{" "}
-            {site.contact.phoneDisplay}.
+            For questions about this Privacy Policy, please contact Ridge Hotel at {site.contact.email},{" "}
+            {site.contact.phoneDisplay} or {site.contact.phoneDisplay2}.
           </LegalSection>
         </div>
       </Container>

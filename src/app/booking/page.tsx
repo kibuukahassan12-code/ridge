@@ -65,6 +65,12 @@ export default async function BookingPage({
                   >
                     <WhatsAppIcon className="h-4 w-4" /> {site.contact.phoneDisplay}
                   </a>
+                  <a
+                    href={`tel:${site.contact.phone2.replace(/\s/g, "")}`}
+                    className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-ivory-100/25 px-6 py-3 text-sm font-semibold text-ivory-100 hover:border-gold-400 hover:text-gold-300"
+                  >
+                    Call {site.contact.phoneDisplay2}
+                  </a>
                   <p className="mt-4 text-xs text-ivory-100/50">
                     Or email{" "}
                     <a href={`mailto:${site.contact.reservationsEmail}`} className="underline">

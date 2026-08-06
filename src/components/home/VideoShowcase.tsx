@@ -37,19 +37,19 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section className="relative bg-forest-950 py-28 lg:py-36">
+    <section className="relative bg-white py-28 lg:py-36">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-2xl text-center">
           <div>
-            <p className="kicker divider-leaf justify-center text-gold-400">The Ridge Experience</p>
+            <p className="kicker divider-leaf justify-center text-gold-600">The Ridge Experience</p>
           </div>
           <div>
-            <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-ivory-100">
+            <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
               A Cinematic Welcome to the Rwenzoris
             </h2>
           </div>
           <div>
-            <p className="mt-4 text-lg leading-relaxed text-ivory-100/75">
+            <p className="mt-4 text-lg leading-relaxed text-forest-950/75">
               Watch the highlands of Western Uganda unfold — from the gardens of Ridge Hotel to the
               snow-capped peaks of the Mountains of the Moon.
             </p>
@@ -60,17 +60,16 @@ export default function VideoShowcase() {
       {/* Full-width video — breaks out of the max-w container to cover the whole section */}
       <div
         ref={containerRef}
-        className="relative mt-16 aspect-video w-full overflow-hidden bg-forest-900"
+        className="relative mt-16 aspect-video w-full overflow-hidden bg-white"
       >
         {/* Placeholder shown behind the iframe while it loads (or if Vimeo is unreachable) */}
         <Image
-          src="/images/hero-scene-1.png"
+          src="/images/hero-scene-1.JPG"
           alt="Ridge Hotel cinematic video placeholder"
           fill
-          className="object-cover opacity-50"
+          className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-forest-950/40" />
 
         {/* Vimeo player — injected only when scrolled into view, then autoplays muted.
             background=1 hides all controls/timer/title for a clean cinematic look. */}

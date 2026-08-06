@@ -134,7 +134,7 @@ export default function WeddingsPage() {
             Speak With Our Events Team
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm text-ivory-100/70">
-            Call or WhatsApp {site.contact.phoneDisplay}, or email {site.contact.email}
+            Call or WhatsApp {site.contact.phoneDisplay} or {site.contact.phoneDisplay2}, or email {site.contact.email}
           </p>
           <div className="mt-8">
             <MagneticButton href="/contact" className="bg-gold-500 text-forest-950 hover:bg-gold-400">

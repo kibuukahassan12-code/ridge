@@ -31,8 +31,8 @@ export default function PoolGardenSection() {
             <Kicker className="justify-center text-gold-600">Gardens &amp; Leisure</Kicker>
           </Reveal>
           <Reveal index={1}>
-            <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
-              Slow Mornings, Green Afternoons
+            <h2 className="mt-6 text-balance font-display text-[clamp(1.6rem,3vw,2.4rem)] font-medium leading-[1.15] text-forest-950">
+              Breathtaking View of the Sunrise in the Mornings and Sunset in the Evening
             </h2>
           </Reveal>
         </div>

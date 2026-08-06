@@ -25,7 +25,7 @@ export default function WelcomeSection() {
           </Reveal>
           <Reveal index={3}>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-forest-800/80">
-              Five kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda's Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
+              Two and a half kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda's Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
             </p>
           </Reveal>
           <Reveal index={4}>
@@ -43,7 +43,7 @@ export default function WelcomeSection() {
             <div className="flex gap-10">
               <Stat label="Guest Rooms" value={`${site.roomCount}`} />
               <Stat label="Altitude" value="1,523m" />
-              <Stat label="To Toro Palace" value="5km" />
+              <Stat label="To Toro Palace" value="2.5km" />
             </div>
           </Reveal>
         </div>
