@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import Lightbox from "@/components/ui/Lightbox";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main id="main-content">{children}</main>
           <Footer />
         </SmoothScroll>
+        <Lightbox />
       </body>
     </html>
   );

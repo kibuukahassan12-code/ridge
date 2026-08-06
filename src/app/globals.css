@@ -78,6 +78,11 @@
     letter-spacing: -0.01em;
   }
 
+  /* Content images are clickable to zoom */
+  main img {
+    cursor: zoom-in;
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
   }
