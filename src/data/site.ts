@@ -44,6 +44,7 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Rooms", href: "/rooms" },
   { label: "Dining", href: "/dining" },
+  { label: "Food", href: "/food" },
   {
     label: "Events",
     href: "/weddings",
@@ -69,6 +70,7 @@ export const footerLinks = {
   stay: [
     { label: "Rooms & Suites", href: "/rooms" },
     { label: "Dining", href: "/dining" },
+    { label: "Food & Cuisine", href: "/food" },
     { label: "Gallery", href: "/gallery" },
   ],
   experiences: [

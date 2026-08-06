@@ -148,9 +148,12 @@ export default function CinematicHero() {
               />
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <MagneticButton href="/booking" className="bg-gold-500 text-forest-950 hover:bg-gold-400">
               Book Your Stay
+            </MagneticButton>
+            <MagneticButton href="/food" variant="outline" className="border-ivory-100/40 text-ivory-100 hover:bg-ivory-100/10">
+              Learn More
             </MagneticButton>
           </div>
         </div>
