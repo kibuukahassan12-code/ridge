@@ -40,7 +40,7 @@ export default function DiningSection() {
             </p>
           </Reveal>
           <Reveal index={4} className="mt-10">
-            <MagneticButton href="/dining" variant="ghost" className="!px-0 !py-0 text-forest-950">
+            <MagneticButton href="/food" variant="ghost" className="!px-0 !py-0 text-forest-950">
               Explore Dining →
             </MagneticButton>
           </Reveal>

@@ -35,7 +35,7 @@ export default function FoodSection() {
             <MagneticButton href="/food" className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
               Explore Our Menu
             </MagneticButton>
-            <MagneticButton href="/dining" variant="ghost" className="!px-0 !py-0 text-forest-950">
+            <MagneticButton href="/food" variant="ghost" className="!px-0 !py-0 text-forest-950">
               Dining Experiences →
             </MagneticButton>
           </Reveal>

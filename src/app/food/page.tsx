@@ -5,11 +5,12 @@ import Kicker from "@/components/ui/Kicker";
 import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import PageHero from "@/components/ui/PageHero";
+import { diningVenues, menuHighlights } from "@/data/dining";
 
 export const metadata: Metadata = {
-  title: "Food & Cuisine — Ridge Hotel",
+  title: "Food, Dining & Cuisine — Ridge Hotel",
   description:
-    "Explore the culinary world of Ridge Hotel, Fort Portal — from artfully plated Ugandan bites and wood-fired specialities to handcrafted cocktails served against the Rwenzori Mountains.",
+    "Explore the culinary world of Ridge Hotel, Fort Portal — from artfully plated Ugandan bites and wood-fired specialities to handcrafted cocktails, garden dining and bespoke private experiences.",
   alternates: { canonical: "/food" },
 };
 
@@ -50,7 +51,7 @@ export default function FoodPage() {
         copy="From the highlands to the plate — every dish is a celebration of Western Uganda's rich culinary heritage, crafted with passion and served with a view."
       />
 
-      {/* Dishes grid */}
+      {/* Dishes grid — kept with images */}
       <section className="bg-ivory-100 py-24 lg:py-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
@@ -108,36 +109,98 @@ export default function FoodPage() {
         </Container>
       </section>
 
+      {/* Dining experiences — text only, summarized */}
+      <section className="bg-ivory-200 py-24 lg:py-32">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <Kicker className="justify-center text-gold-600">Where to Dine</Kicker>
+            </Reveal>
+            <Reveal index={1}>
+              <h2 className="mt-6 text-balance font-display text-[clamp(2rem,3.6vw,3rem)] font-medium leading-[1.1] text-forest-950">
+                Three Spaces, One Table
+              </h2>
+            </Reveal>
+            <Reveal index={2}>
+              <p className="mt-4 text-lg leading-relaxed text-forest-800/75">
+                Every corner of Ridge Hotel invites you to sit, savour and stay a while.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {diningVenues.map((venue, i) => (
+              <Reveal key={venue.name} index={i}>
+                <div className="h-full rounded-2xl border border-stone-400/30 bg-ivory-100 p-8">
+                  <h3 className="font-display text-xl font-medium text-forest-950">{venue.name}</h3>
+                  <p className="mt-1 text-sm italic text-gold-600">{venue.tagline}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-forest-800/75">{venue.description}</p>
+                  <p className="mt-5 text-xs uppercase tracking-widest text-forest-800/50">{venue.hours}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Menu highlights — text only */}
+      <section className="bg-forest-950 py-24 text-ivory-100 lg:py-32">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <Kicker className="justify-center text-gold-400">Menu Highlights</Kicker>
+            </Reveal>
+            <Reveal index={1}>
+              <h2 className="mt-6 text-balance font-display text-[clamp(2rem,3.6vw,3rem)] font-medium leading-[1.1]">
+                A Taste of Toro, Plated Beautifully
+              </h2>
+            </Reveal>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {menuHighlights.map((section, i) => (
+              <Reveal key={section.category} index={i}>
+                <h3 className="kicker text-gold-400">{section.category}</h3>
+                <ul className="mt-5 space-y-3 border-t border-ivory-100/10 pt-5">
+                  {section.items.map((item) => (
+                    <li key={item} className="text-sm leading-relaxed text-ivory-100/80">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-10 text-center text-xs text-ivory-100/50">
+            Menus rotate seasonally based on local availability. Vegetarian, vegan and dietary-specific options
+            available on request.
+          </p>
+        </Container>
+      </section>
+
       {/* Private dining CTA */}
-      <section className="relative overflow-hidden bg-forest-950 py-24 text-ivory-100 lg:py-32">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 30%, var(--color-gold-400) 0, transparent 45%), radial-gradient(circle at 80% 70%, var(--color-emerald-500) 0, transparent 50%)",
-          }}
-        />
+      <section className="relative overflow-hidden bg-ivory-100 py-24 text-forest-950 lg:py-32">
         <Container className="relative text-center">
           <Reveal>
-            <Kicker className="justify-center text-gold-400">Reservations</Kicker>
+            <Kicker className="justify-center text-gold-600">Private Garden Dining</Kicker>
           </Reveal>
           <Reveal index={1}>
             <h2 className="mt-6 text-balance font-display text-[clamp(2rem,3.6vw,3rem)] font-medium leading-[1.1]">
-              Ready to Taste Uganda?
+              Book a Table Under the Stars
             </h2>
           </Reveal>
           <Reveal index={2}>
-            <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ivory-100/75">
-              Whether you're planning a romantic dinner, a family celebration, or simply want to
-              experience the best of Ugandan cuisine — our team is ready to welcome you.
+            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-forest-800/80">
+              Celebrating a proposal, anniversary or milestone? Our team will lay a private, lantern-lit table in
+              the gardens and build a bespoke set menu with our executive chef — just for you.
             </p>
           </Reveal>
           <Reveal index={3} className="mt-10 flex flex-wrap justify-center gap-4">
-            <MagneticButton href="/dining" className="bg-gold-500 text-forest-950 hover:bg-gold-400">
-              View Dining Experiences
+            <MagneticButton href="/contact" className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
+              Enquire About Private Dining
             </MagneticButton>
-            <MagneticButton href="/contact" variant="outline" className="border-ivory-100/30">
-              Make a Reservation
+            <MagneticButton href="/booking" variant="ghost" className="!px-0 !py-0 text-forest-950">
+              Book Your Stay →
             </MagneticButton>
           </Reveal>
         </Container>
