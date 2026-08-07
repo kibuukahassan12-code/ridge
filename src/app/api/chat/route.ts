@@ -9,11 +9,6 @@ import { offers } from "@/data/offers";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY || "",
-});
-
 const hotelSystemPrompt = `You are an AI concierge for Ridge Hotel, a premier highland retreat in Fort Portal, Uganda. Your role is to answer questions about the hotel, its rooms, experiences, dining, events, policies, and the surrounding area. You can also accept booking requests.
 
 **HOTEL INFORMATION:**
@@ -62,6 +57,11 @@ Ask them for their details (name, email, phone, check-in/check-out dates, room p
 
 export async function POST(request: Request) {
   try {
+    const openai = new OpenAI({
+      baseURL: "https://openrouter.ai/api/v1",
+      apiKey: process.env.OPENROUTER_API_KEY || "",
+    });
+
     const { messages } = await request.json();
 
     if (!messages || !Array.isArray(messages)) {
