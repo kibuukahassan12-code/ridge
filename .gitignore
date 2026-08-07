@@ -35,3 +35,18 @@ next-env.d.ts
 drizzle/
 # Local Netlify folder
 .netlify
+
+# InsForge & AI agent skills
+.insforge
+.agent
+.agents
+.augment
+.claude
+.cline
+.github/copilot*
+.kilocode
+.qoder
+.qwen
+.roo
+.trae
+.windsurf

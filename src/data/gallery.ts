@@ -16,7 +16,7 @@ export const galleryImages = [
   // Rooms & Interiors
   { src: "/images/family-twin-room.jpg", alt: "Family Twin Room with Double Beds", category: "Rooms" },
   { src: "/images/garden-deluxe-room.jpg", alt: "Garden Deluxe Room Interior", category: "Rooms" },
-  { src: "/images/rooms-hero.jpg", alt: "Rwenzori Balcony Room Bed Setup", category: "Rooms" },
+  { src: "/images/711A6613.JPG", alt: "Rwenzori Balcony Room Bed Setup", category: "Rooms" },
   { src: "/images/executive-suite.jpg", alt: "Executive Suite Master Bed & Lounge", category: "Rooms" },
   { src: media.rooms[0], alt: "Rwenzori Balcony Room Interior", category: "Rooms" },
   { src: media.lobby[0], alt: "Ridge Hotel Lobby Lounge Seating", category: "Interiors" },
@@ -33,7 +33,7 @@ export const galleryImages = [
   { src: "/images/711A6715.JPG", alt: "Ridge Hotel Event Lawn", category: "Weddings" },
   { src: "/images/711A6719.JPG", alt: "Outdoor Celebration Area", category: "Weddings" },
   { src: "/images/711A6722.JPG", alt: "Garden Wedding Lawn Setting", category: "Weddings" },
-  { src: media.weddings[0], alt: "Garden Wedding Reception Setting", category: "Weddings" },
+  { src: "/images/711A6738.JPG", alt: "Garden Wedding Reception Setting", category: "Weddings" },
   { src: media.weddings[2], alt: "Terraced Garden Lawn Set for Celebrations", category: "Weddings" },
   { src: media.conference[1], alt: "Conference Hall Set for an Event", category: "Events" },
 

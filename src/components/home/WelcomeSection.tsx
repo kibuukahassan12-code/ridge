@@ -50,9 +50,16 @@ export default function WelcomeSection() {
 
         <Reveal variants={{ hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
-            <Image src="/images/711A6738.JPG" alt="Ridge Hotel entrance sign framed by palm trees" fill className="object-cover" sizes="(min-width: 1024px) 40vw, 90vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-950/30 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-5 text-ivory-100">
+            <Image
+              src="/images/711A6738.JPG"
+              alt="Ridge Hotel entrance sign framed by palm trees"
+              fill
+              quality={100}
+              sizes="(min-width: 1280px) 45vw, (min-width: 768px) 50vw, 100vw"
+              className="cursor-zoom-in object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950/30 to-transparent" />
+            <div className="pointer-events-none absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-5 text-ivory-100">
               <p className="font-display text-2xl italic">&ldquo;Comfort and Class&rdquo;</p>
               <p className="mt-1 text-xs uppercase tracking-widest text-ivory-100/70">Est. {site.founded}, Western Uganda</p>
             </div>

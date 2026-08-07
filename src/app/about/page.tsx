@@ -44,7 +44,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        image="/images/about-hero-new.png"
+        image="/images/711A6517.JPG"
         kicker="Our Story"
         title="Comfort and Class, Built for Adventure"
         copy="Ridge Hotel was raised on a hillside chosen for one reason: the view. Everything else was built around it."
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </div>
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <Image src="/images/about-hotel.jpg" alt="Ridge Hotel" fill className="object-cover" sizes="(min-width:1024px) 40vw, 90vw" />
+              <Image src="/images/711A6512.JPG" alt="Ridge Hotel" fill className="object-cover" sizes="(min-width:1024px) 40vw, 90vw" />
             </div>
           </Reveal>
         </Container>

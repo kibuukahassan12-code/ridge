@@ -32,7 +32,7 @@ export default function PalmGardenSection() {
   return (
     <section className="bg-ivory-100 py-28 lg:py-36">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-3">
           <Reveal
             variants={{
               hidden: { opacity: 0, scale: 0.95 },
@@ -41,14 +41,15 @@ export default function PalmGardenSection() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
               <Image
-                src="/images/711A6675.JPG"
+                src="/images/711A6723.JPG"
                 alt="Palm trunks rising around the wrought-iron viewing deck on the garden lawn at Ridge Hotel"
                 fill
-                sizes="(min-width: 1024px) 45vw, 90vw"
+                quality={100}
+                sizes="(min-width: 1024px) 33vw, 90vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/45 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-5 text-ivory-100">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950/45 to-transparent" />
+              <div className="pointer-events-none absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-5 text-ivory-100">
                 <p className="font-display text-2xl italic">
                   Looking down into the palm lawn
                 </p>
@@ -59,7 +60,7 @@ export default function PalmGardenSection() {
             </div>
           </Reveal>
 
-          <div>
+          <div className="lg:col-span-2">
             <Reveal>
               <Kicker className="text-gold-600">Under the Canopy</Kicker>
             </Reveal>

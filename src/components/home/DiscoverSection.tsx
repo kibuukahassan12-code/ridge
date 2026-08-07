@@ -47,8 +47,8 @@ export default function DiscoverSection() {
                     sizes="(min-width:1024px) 30vw, (min-width:640px) 45vw, 90vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/20 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-6">
                     <p className="text-[11px] uppercase tracking-widest text-gold-300">{exp.distance}</p>
                     <h3 className="mt-2 font-display text-xl leading-tight">{exp.name}</h3>
                   </div>

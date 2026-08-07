@@ -51,7 +51,7 @@ export default function FoodSection() {
                 className="object-cover"
                 sizes="(min-width:1024px) 22vw, 45vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
             </div>
             <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
               <Image
@@ -61,7 +61,7 @@ export default function FoodSection() {
                 className="object-cover"
                 sizes="(min-width:1024px) 22vw, 45vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
             </div>
           </div>
         </Reveal>

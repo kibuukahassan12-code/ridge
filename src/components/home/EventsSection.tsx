@@ -24,7 +24,7 @@ export default function EventsSection() {
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <Reveal index={2}>
             <EventCard
-              image={media.weddings[2]}
+              image="/images/wedding-rwenzori.png"
               tag="Weddings & Celebrations"
               title="Say “I do” beneath the Rwenzoris"
               copy="Ridge Hotel is ideal for honeymooners and wedding receptions in our vast gardens that can seat over 3,000 guests. We host Kuhingira (give-aways) and other big functions with in-house catering, décor coordination and accommodation blocks for the whole wedding party."
@@ -34,10 +34,10 @@ export default function EventsSection() {
           </Reveal>
           <Reveal index={3}>
             <EventCard
-              image={media.conference[1]}
+              image="/images/711A6453.JPG"
               tag="Conferences & Meetings"
               title={`Seat ${site.conferenceCapacity} delegates in comfort`}
-              copy="A dedicated conference hall with flexible theatre, classroom and boardroom layouts, standard AV equipment and full-service catering — also available for private meetings, set against the backdrop of the Rwenzori Mountains."
+              copy="Host your next meeting with the breathtaking Rwenzori ranges as your backdrop. Our dedicated conference hall pairs flexible theatre, classroom and boardroom layouts with full-service catering — so every session is framed by the snow-capped peaks of the Mountains of the Moon."
               href="/conference"
               cta="Plan Your Event"
             />

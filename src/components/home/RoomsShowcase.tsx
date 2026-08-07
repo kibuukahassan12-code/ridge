@@ -46,8 +46,8 @@ export default function RoomsShowcase() {
                     sizes="(min-width: 1280px) 24vw, (min-width: 768px) 45vw, 90vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/10 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-5">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/10 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
                     <p className="text-xs uppercase tracking-widest text-gold-300">From ${room.price} / night</p>
                     <h3 className="mt-1 font-display text-xl">{room.name}</h3>
                   </div>

@@ -6,9 +6,9 @@ import { media } from "@/data/media";
 
 const features = [
   {
-    title: "Meeting Room",
-    copy: "A quiet, naturally lit room laid out for boardroom sessions, workshops and small conferences, steps from the gardens.",
-    image: media.conference[3],
+    title: "Balcony Views of the Rwenzoris",
+    copy: "Step onto your private balcony and watch the Rwenzori ranges catch the first gold of sunrise, then fade to violet as the sun sets behind the Mountains of the Moon — a breathtaking panorama that unfolds from every room.",
+    image: "/images/meeting-room-rwenzori.png",
   },
   {
     title: "Bar & Terrace",

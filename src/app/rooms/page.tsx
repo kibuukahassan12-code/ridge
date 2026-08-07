@@ -21,7 +21,7 @@ export default function RoomsPage() {
   return (
     <>
       <PageHero
-        image="/images/rooms-hero.jpg"
+        image="/images/711A6613.JPG"
         kicker="Rooms & Suites"
         title="Twenty-One Rooms, Each With a View"
         copy="Set at 1,523 metres in Uganda's highlands, every room opens onto a private balcony with an uninterrupted view of the Rwenzori Mountains — Uganda's highest and most magnificent natural wonder."
