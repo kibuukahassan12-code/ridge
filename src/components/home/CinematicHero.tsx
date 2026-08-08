@@ -4,21 +4,20 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { media } from "@/data/media";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 // ─── Main Hero Carousel (image-only) ────────────────────────────────────────
 const sceneImages: string[] = [
-  "/images/711A6517.JPG",
+  "/images/711A6471.JPG",
+  "/images/711A6509.JPG",
   "/images/hero-scene-2.png",
-  "/images/hero-scene-3.png",
-  media.tea[0],
-  media.mountains[0],
+  "/images/hero-scene-3.jpg",
+  "/images/hero-scene-5.jpg",
 ];
 
 export default function CinematicHero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 6000, stopOnInteraction: false }),
+    Autoplay({ delay: 2000, stopOnInteraction: false }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);

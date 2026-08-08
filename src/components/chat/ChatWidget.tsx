@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { MessageSquare, Send, Sparkles, X } from "lucide-react";
 import Image from "next/image";
 import { site } from "@/data/site";
@@ -17,60 +17,66 @@ const SUGGESTIONS = [
   "I'd like to make a reservation",
 ];
 
+const WELCOME_MESSAGE: Message = {
+  role: "assistant",
+  content:
+    "Welcome to Ridge Hotel! 🌿 I'm your AI concierge. Ask me anything about our rooms, experiences, dining, events, or local attractions — and I can help you make a booking right here.",
+};
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [hasWelcome, setHasWelcome] = useState(false);
+  const hasOpenedRef = useRef(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (!hasWelcome && isOpen) {
-      setMessages([
-        {
-          role: "assistant",
-          content:
-            "Welcome to Ridge Hotel! 🌿 I'm your AI concierge. Ask me anything about our rooms, experiences, dining, events, or local attractions — and I can help you make a booking right here.",
-        },
-      ]);
-      setHasWelcome(true);
-    }
-  }, [isOpen, hasWelcome]);
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, isLoading]);
-
-  useEffect(() => {
-    if (isOpen) {
+  function handleToggle() {
+    const next = !isOpen;
+    setIsOpen(next);
+    if (next) {
+      // Focus the input once the panel has rendered.
       setTimeout(() => inputRef.current?.focus(), 100);
+      if (!hasOpenedRef.current) {
+        hasOpenedRef.current = true;
+        setMessages([WELCOME_MESSAGE]);
+      }
     }
-  }, [isOpen]);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    // Defer so the layout has settled after messages change.
+    setTimeout(() => {
+      scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    }, 0);
+  }
 
   async function handleSend(text?: string) {
     const content = (text ?? input).trim();
     if (!content || isLoading) return;
 
     const userMsg: Message = { role: "user", content };
-    setMessages((prev) => [...prev, userMsg]);
+    const nextMessages = [...messages, userMsg];
+    setMessages(nextMessages);
     setInput("");
     setIsLoading(true);
 
     try {
-      const history = messages.concat(userMsg);
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: nextMessages }),
       });
 
       const data = await res.json();
       const reply = data.reply || "I'm sorry, I couldn't process that. Please try again.";
 
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+      scrollToBottom();
     } catch {
+      scrollToBottom();
       setMessages((prev) => [
         ...prev,
         {
@@ -87,7 +93,7 @@ export default function ChatWidget() {
     <>
       {/* Floating button */}
       <button
-        onClick={() => setIsOpen((v) => !v)}
+        onClick={handleToggle}
         aria-label={isOpen ? "Close chat" : "Open chat assistant"}
         className="fixed bottom-6 right-6 z-[80] flex h-14 w-14 items-center justify-center rounded-full bg-forest-900 text-ivory-100 shadow-2xl shadow-forest-950/40 transition-all duration-300 hover:scale-105 hover:bg-forest-800"
       >

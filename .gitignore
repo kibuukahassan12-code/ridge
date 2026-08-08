@@ -36,6 +36,9 @@ drizzle/
 # Local Netlify folder
 .netlify
 
+# accidental artifact
+nul)
+
 # InsForge & AI agent skills
 .insforge
 .agent

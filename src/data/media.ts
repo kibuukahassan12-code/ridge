@@ -77,7 +77,7 @@ export const media = {
     "/images/executive-suite.jpg",
     "/images/family-twin-room.jpg",
     "/images/garden-deluxe-room.jpg",
-    "/images/garden-cottage.jpg",
+    "/images/711A6618.JPG",
     "/images/garden-room-block.jpg",
     "/images/about-hotel.jpg",
     "/images/ridge-hotel-entrance-sign.png",

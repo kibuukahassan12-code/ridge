@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import { site, navLinks, footerLinks } from "@/data/site";
+import { site, navLinks } from "@/data/site";
 import { rooms } from "@/data/rooms";
 import { experiences } from "@/data/experiences";
 import { faqCategories } from "@/data/faqs";
@@ -8,6 +8,9 @@ import { offers } from "@/data/offers";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+
+const GET_SITE_URL = () =>
+  process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || site.url || "http://localhost:3000";
 
 const hotelSystemPrompt = `You are an AI concierge for Ridge Hotel, a premier highland retreat in Fort Portal, Uganda. Your role is to answer questions about the hotel, its rooms, experiences, dining, events, policies, and the surrounding area. You can also accept booking requests.
 
@@ -57,9 +60,22 @@ Ask them for their details (name, email, phone, check-in/check-out dates, room p
 
 export async function POST(request: Request) {
   try {
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    if (!apiKey) {
+      console.error("OPENROUTER_API_KEY is not configured");
+      return NextResponse.json(
+        {
+          reply:
+            "I'm sorry, the AI concierge is not yet configured. Please contact us directly via WhatsApp at 0777483169 or email reservations@ridgehotelug.com for assistance.",
+          error: "missing_api_key",
+        },
+        { status: 503 }
+      );
+    }
+
     const openai = new OpenAI({
       baseURL: "https://openrouter.ai/api/v1",
-      apiKey: process.env.OPENROUTER_API_KEY || "",
+      apiKey,
     });
 
     const { messages } = await request.json();
@@ -80,11 +96,12 @@ export async function POST(request: Request) {
       }
     }
 
-    // If we extracted booking data, submit it to the booking API
+    // If we extracted booking data, submit it to the booking API.
+    // Use the configured site URL instead of the browser origin so this
+    // works reliably on the live server even when the origin header is absent.
     if (bookingData) {
       try {
-        const origin = request.headers.get("origin") || "http://localhost:3000";
-        await fetch(`${origin}/api/booking`, {
+        await fetch(`${GET_SITE_URL()}/api/booking`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(bookingData),

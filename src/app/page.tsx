@@ -3,8 +3,6 @@ import CinematicHero from "@/components/home/CinematicHero";
 import VideoShowcase from "@/components/home/VideoShowcase";
 import WelcomeSection from "@/components/home/WelcomeSection";
 import RoomsShowcase from "@/components/home/RoomsShowcase";
-import DiningSection from "@/components/home/DiningSection";
-import FoodSection from "@/components/home/FoodSection";
 import EventsSection from "@/components/home/EventsSection";
 import PoolGardenSection from "@/components/home/PoolGardenSection";
 import AmenitiesSection from "@/components/home/AmenitiesSection";
@@ -26,8 +24,6 @@ export default function HomePage() {
       <VideoShowcase />
       <WelcomeSection />
       <RoomsShowcase />
-      <DiningSection />
-      <FoodSection />
       <EventsSection />
       <PoolGardenSection />
       <AmenitiesSection />
