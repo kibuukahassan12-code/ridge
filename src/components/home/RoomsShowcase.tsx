@@ -9,7 +9,7 @@ import { rooms } from "@/data/rooms";
 
 export default function RoomsShowcase() {
   return (
-    <section className="relative bg-forest-950 py-28 text-ivory-100 lg:py-36">
+    <section className="relative bg-forest-950 py-16 text-ivory-100 lg:py-20">
       <Container>
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div>
@@ -34,7 +34,7 @@ export default function RoomsShowcase() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
           {rooms.map((room, i) => (
             <Reveal key={room.slug} index={i}>
               <Link href={`/rooms/${room.slug}`} className="group block">
@@ -46,10 +46,10 @@ export default function RoomsShowcase() {
                     sizes="(min-width: 1280px) 24vw, (min-width: 768px) 45vw, 90vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/10 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent" />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
                     <p className="text-xs uppercase tracking-widest text-gold-300">From ${room.price} / night</p>
-                    <h3 className="mt-1 font-display text-xl">{room.name}</h3>
+                    <h3 className="mt-1 font-display text-xl text-ivory-100">{room.name}</h3>
                   </div>
                   <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-ivory-100/15 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
                     <ArrowUpRight className="h-4 w-4" />

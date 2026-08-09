@@ -37,7 +37,7 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section className="relative bg-white py-28 lg:py-36">
+    <section id="after-hero" className="relative bg-white py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-2xl text-center">
           <div>

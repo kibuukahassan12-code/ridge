@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
 import { site, navLinks } from "@/data/site";
 import { rooms } from "@/data/rooms";
 import { experiences } from "@/data/experiences";
@@ -8,6 +7,14 @@ import { offers } from "@/data/offers";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+
+// The AI chat is proxied through the InsForge edge function so the
+// OpenRouter API key stays server-side in InsForge secrets. This lets the
+// chatbot work on ANY deployment platform (Netlify, Vercel, etc.) without
+// needing the key in the platform's environment variables.
+const AI_CHAT_FUNCTION_URL =
+  process.env.INSFORGE_AI_CHAT_URL ||
+  "https://nnki5k8p.function2.insforge.app";
 
 const GET_SITE_URL = () =>
   process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || site.url || "http://localhost:3000";
@@ -60,24 +67,6 @@ Ask them for their details (name, email, phone, check-in/check-out dates, room p
 
 export async function POST(request: Request) {
   try {
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) {
-      console.error("OPENROUTER_API_KEY is not configured");
-      return NextResponse.json(
-        {
-          reply:
-            "I'm sorry, the AI concierge is not yet configured. Please contact us directly via WhatsApp at 0777483169 or email reservations@ridgehotelug.com for assistance.",
-          error: "missing_api_key",
-        },
-        { status: 503 }
-      );
-    }
-
-    const openai = new OpenAI({
-      baseURL: "https://openrouter.ai/api/v1",
-      apiKey,
-    });
-
     const { messages } = await request.json();
 
     if (!messages || !Array.isArray(messages)) {
@@ -111,35 +100,42 @@ export async function POST(request: Request) {
       }
     }
 
-    const completion = await openai.chat.completions.create({
-      model: "openai/gpt-4o-mini",
-      messages: [
-        { role: "system", content: hotelSystemPrompt },
-        ...messages.map((m: { role: string; content: string }) => ({
-          role: m.role as "user" | "assistant" | "system",
-          content: m.content,
-        })),
-      ],
-      temperature: 0.7,
-      max_tokens: 800,
+    // Build the full message list with the hotel system prompt, then
+    // forward it to the InsForge edge function which calls OpenRouter.
+    const fullMessages = [
+      { role: "system", content: hotelSystemPrompt },
+      ...messages.map((m: { role: string; content: string }) => ({
+        role: m.role as "user" | "assistant" | "system",
+        content: m.content,
+      })),
+    ];
+
+    const fnRes = await fetch(`${AI_CHAT_FUNCTION_URL}/ai-chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: fullMessages }),
     });
 
-    const reply = completion.choices[0]?.message?.content || "I'm sorry, I couldn't process that. Please try again or contact us directly on WhatsApp.";
+    const data = await fnRes.json();
 
-    return NextResponse.json({ reply });
-  } catch (error: any) {
-    console.error("Chat API error:", error);
-
-    // If the API key is not configured
-    if (error?.status === 401 || error?.message?.includes("401")) {
-      return NextResponse.json({
-        reply: "I'm sorry, the AI concierge is not yet configured. Please contact us directly via WhatsApp at 0777483169 or email reservations@ridgehotelug.com for assistance.",
-        error: "unauthorized",
-      });
+    if (!fnRes.ok) {
+      console.error("AI chat function error:", data);
+      return NextResponse.json(
+        {
+          reply:
+            "I'm sorry, I'm having trouble connecting right now. Please try again or contact us directly on WhatsApp at 0777483169.",
+          error: data?.error || "ai_chat_error",
+        },
+        { status: fnRes.status }
+      );
     }
 
+    return NextResponse.json({ reply: data.reply });
+  } catch (error) {
+    console.error("Chat API error:", error);
     return NextResponse.json({
-      reply: "I'm sorry, I'm having trouble connecting right now. Please try again or contact us directly on WhatsApp at 0777483169.",
+      reply:
+        "I'm sorry, I'm having trouble connecting right now. Please try again or contact us directly on WhatsApp at 0777483169.",
     });
   }
 }

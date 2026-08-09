@@ -8,7 +8,7 @@ import { WhatsAppIcon } from "@/components/ui/SocialIcons";
 
 export default function BookingCTA() {
   return (
-    <section className="relative isolate overflow-hidden py-32 lg:py-40">
+    <section className="relative isolate overflow-hidden py-20 lg:py-24">
       <Image src={media.sunset[1]} alt="Sunset over the Rwenzori Mountains" fill className="object-cover" sizes="100vw" />
       <div className="absolute inset-0 bg-forest-950/75" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-forest-950/60" />

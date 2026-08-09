@@ -23,7 +23,7 @@ const amenities = [
 
 export default function AmenitiesSection() {
   return (
-    <section className="bg-ivory-100 py-28 lg:py-36">
+    <section className="bg-ivory-100 py-16 lg:py-20">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>

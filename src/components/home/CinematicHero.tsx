@@ -13,6 +13,9 @@ const sceneImages: string[] = [
   "/images/hero-scene-2.png",
   "/images/hero-scene-3.jpg",
   "/images/hero-scene-5.jpg",
+  "/images/hero-scene-6.png",
+  "/images/hero-scene-7.jpg",
+  "/images/hero-scene-8.png",
 ];
 
 export default function CinematicHero() {
@@ -22,6 +25,7 @@ export default function CinematicHero() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const autoplayRef = useRef<ReturnType<typeof Autoplay> | null>(null);
+  const autoScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -35,9 +39,19 @@ export default function CinematicHero() {
     // Store the autoplay plugin instance for pause/resume on hover
     autoplayRef.current = emblaApi.plugins()?.autoplay ?? null;
 
+    // Auto-scroll to the next section once the carousel has played
+    // through all slides once (8 slides × 2000ms = 16s).
+    const totalSlides = emblaApi.scrollSnapList().length;
+    autoScrollTimerRef.current = setTimeout(() => {
+      document
+        .getElementById("after-hero")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, totalSlides * 2000 + 500);
+
     return () => {
       emblaApi.off("select", onSelect);
       emblaApi.off("reInit", onSelect);
+      if (autoScrollTimerRef.current) clearTimeout(autoScrollTimerRef.current);
     };
   }, [emblaApi]);
 
@@ -79,16 +93,11 @@ export default function CinematicHero() {
                 quality={100}
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/10 to-forest-950/40" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Volumetric light + fog overlay to mask transitions */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-forest-950/70 via-transparent to-forest-950/80" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(233,212,161,0.18),transparent_55%)]" />
-      <FloatingParticles />
 
       {/* Book Your Stay button */}
       <div className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 lg:px-16 lg:pb-14">

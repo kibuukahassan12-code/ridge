@@ -74,7 +74,7 @@ export default function AboutPage() {
                 Since opening our doors, we have welcomed travellers tracking chimpanzees through Kibale Forest,
                 trekkers preparing for the Rwenzori summit circuit, wedding parties filling our gardens with music,
                 and business leaders filling our conference hall with ideas. Each guest leaves a little more attached
-                to Western Uganda's natural wonders than when they arrived — and that has always been the point.
+                to Western Uganda{"'"}s natural wonders than when they arrived — and that has always been the point.
               </p>
             </Reveal>
           </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <div className="rounded-[1.75rem] border border-ivory-100/15 p-10">
               <Kicker className="text-gold-400">Our Vision</Kicker>
               <p className="mt-6 font-display text-2xl leading-snug">
-                To be recognised as Western Uganda's definitive address for comfort, celebration and discovery —
+                To be recognised as Western Uganda{"'"}s definitive address for comfort, celebration and discovery —
                 a hotel as memorable as the mountains it overlooks.
               </p>
             </div>

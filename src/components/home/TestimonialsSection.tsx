@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section className="bg-ivory-100 py-28 lg:py-36">
+    <section className="bg-ivory-100 py-16 lg:py-20">
       <Container className="mx-auto max-w-3xl text-center">
         <Reveal>
           <Kicker className="justify-center text-gold-600">Guest Stories</Kicker>

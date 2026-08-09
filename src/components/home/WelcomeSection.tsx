@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 
 export default function WelcomeSection() {
   return (
-    <section className="relative bg-ivory-100 py-28 lg:py-36">
+    <section className="relative bg-ivory-100 py-16 lg:py-20">
       <Container className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div>
           <Reveal>
@@ -15,17 +15,17 @@ export default function WelcomeSection() {
           </Reveal>
           <Reveal index={1}>
             <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
-              Uganda's Gateway to the Rwenzoris
+              Uganda{"'"}s Gateway to the Rwenzoris
             </h2>
           </Reveal>
           <Reveal index={2}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-800/80">
-              Perched at an altitude of 1,523 metres in the highlands of Western Uganda, Ridge Hotel is your finest base for exploring the Pearl of Africa. Our {site.roomCount} rooms each open onto a private balcony facing the snow-capped Rwenzori Mountains — Uganda's rooftop, visible from your bed. This is where comfort meets the wild, and every morning begins with a view that reminds you why Uganda is like no other place on earth.
+              Perched at an altitude of 1,523 metres in the highlands of Western Uganda, Ridge Hotel is your finest base for exploring the Pearl of Africa. Our {site.roomCount} rooms each open onto a private balcony facing the snow-capped Rwenzori Mountains — Uganda{"'"}s rooftop, visible from your bed. This is where comfort meets the wild, and every morning begins with a view that reminds you why Uganda is like no other place on earth.
             </p>
           </Reveal>
           <Reveal index={3}>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-forest-800/80">
-              Two and a half kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda's Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
+              Two and a half kilometres from the Toro Kingdom Palace — the royal residence of King Oyo Nyimba Kabamba Iguru Rukidi IV, the youngest ruling monarch in the world — Ridge Hotel is the natural crossing point for all of Uganda{"'"}s Western treasures. Chimpanzees, volcanic crater lakes, organic tea estates, and the legendary Rwenzori glaciers are all within reach. For many guests, the hotel becomes the favourite part of the journey.
             </p>
           </Reveal>
           <Reveal index={4}>
@@ -51,7 +51,7 @@ export default function WelcomeSection() {
         <Reveal variants={{ hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
             <Image
-              src="/images/711A6738.JPG"
+              src="/images/ridge-hotel-welcome.jpg"
               alt="Ridge Hotel entrance sign framed by palm trees"
               fill
               quality={100}

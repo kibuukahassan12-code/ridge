@@ -10,7 +10,7 @@ import { experiences } from "@/data/experiences";
 export default function DiscoverSection() {
   const featured = experiences.slice(0, 6);
   return (
-    <section className="relative bg-forest-950 py-28 text-ivory-100 lg:py-36">
+    <section className="relative bg-forest-950 py-16 text-ivory-100 lg:py-20">
       <Container>
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div>

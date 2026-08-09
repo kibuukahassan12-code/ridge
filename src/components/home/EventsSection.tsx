@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 
 export default function EventsSection() {
   return (
-    <section className="bg-forest-950 py-28 text-ivory-100 lg:py-36">
+    <section className="bg-forest-950 py-16 text-ivory-100 lg:py-20">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>

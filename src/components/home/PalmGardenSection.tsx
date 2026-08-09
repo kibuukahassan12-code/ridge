@@ -30,7 +30,7 @@ const highlights = [
 
 export default function PalmGardenSection() {
   return (
-    <section className="bg-ivory-100 py-28 lg:py-36">
+    <section className="bg-ivory-100 py-16 lg:py-20">
       <Container>
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-3">
           <Reveal
@@ -41,7 +41,7 @@ export default function PalmGardenSection() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
               <Image
-                src="/images/711A6723.JPG"
+                src="/images/ridge-palm-garden.jpg"
                 alt="Palm trunks rising around the wrought-iron viewing deck on the garden lawn at Ridge Hotel"
                 fill
                 quality={100}

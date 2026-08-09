@@ -40,7 +40,7 @@ const facts = [
 
 export default function SagoPalmSection() {
   return (
-    <section className="bg-ivory-200 py-28 lg:py-36">
+    <section className="bg-ivory-200 py-16 lg:py-20">
       <Container>
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-3">
           <Reveal
