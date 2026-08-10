@@ -26,7 +26,19 @@ export default function ReceptionSection() {
   return (
     <section className="bg-ivory-100 py-16 lg:py-20">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        {/* Section header */}
+        <Reveal>
+          <Kicker className="text-gold-600">The Reception</Kicker>
+        </Reveal>
+        <Reveal index={1}>
+          <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
+            Where Your Highland
+            <br />
+            Welcome Begins
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <Reveal
             variants={{
               hidden: { opacity: 0, scale: 0.95 },
@@ -55,16 +67,8 @@ export default function ReceptionSection() {
           </Reveal>
 
           <div>
-            <Reveal>
-              <Kicker className="text-gold-600">The Reception</Kicker>
-            </Reveal>
-            <Reveal index={1}>
-              <h2 className="mt-6 text-balance font-display text-[clamp(2.2rem,4.2vw,3.6rem)] font-medium leading-[1.08] text-forest-950">
-                Where Your Highland Welcome Begins
-              </h2>
-            </Reveal>
             <Reveal index={2}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-800/80">
+              <p className="max-w-xl text-lg leading-relaxed text-forest-800/80">
                 Step off the ridge road and into a reception that sets the tone for the whole stay — warm timber, soft light, and a genuine Toro welcome waiting behind the desk. It is the calm between the long drive and the mountain views, and it is often where guests first realise they have arrived somewhere special.
               </p>
             </Reveal>

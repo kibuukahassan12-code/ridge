@@ -33,14 +33,20 @@ export default function FoodSection() {
           </Reveal>
           <Reveal index={4} className="mt-10 flex flex-wrap gap-4">
             <MagneticButton href="/dining" className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
-              Dining Experiences
+              Explore Dining Experience
             </MagneticButton>
           </Reveal>
         </div>
 
         <Reveal className="relative">
           <div className="grid grid-cols-2 gap-4">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+            <Reveal
+              variants={{
+                hidden: { opacity: 0, scale: 1.15 },
+                show: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg"
+            >
               <Image
                 src="/images/food/indulge-bites.jpg"
                 alt="Artfully plated bites featuring bold Ugandan flavours at Ridge Hotel"
@@ -49,8 +55,14 @@ export default function FoodSection() {
                 sizes="(min-width:1024px) 22vw, 45vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
-            </div>
-            <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+            </Reveal>
+            <Reveal
+              variants={{
+                hidden: { opacity: 0, scale: 1.15 },
+                show: { opacity: 1, scale: 1, transition: { duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="relative mt-10 aspect-[4/3] overflow-hidden rounded-2xl shadow-lg"
+            >
               <Image
                 src="/images/food/cocktails.jpg"
                 alt="Signature cocktails prepared at The Ridge Bar with Rwenzori mountain views"
@@ -59,7 +71,7 @@ export default function FoodSection() {
                 sizes="(min-width:1024px) 22vw, 45vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent" />
-            </div>
+            </Reveal>
           </div>
         </Reveal>
       </Container>
