@@ -8,6 +8,7 @@ import Kicker from "@/components/ui/Kicker";
 import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { experiences, getExperienceBySlug } from "@/data/experiences";
+import { site } from "@/data/site";
 
 export function generateStaticParams() {
   return experiences.map((exp) => ({ slug: exp.slug }));
@@ -95,10 +96,19 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
                 <InfoRow icon={<Clock className="h-4 w-4 text-gold-600" />} label="Recommended Duration" value={exp.duration} />
                 <InfoRow icon={<Users className="h-4 w-4 text-gold-600" />} label="Best For" value={exp.bestFor.join(", ")} />
               </div>
-              <MagneticButton href="/contact" className="mt-8 w-full bg-forest-900 text-ivory-100 hover:bg-forest-800">
+              <MagneticButton
+                href={`${site.contact.whatsapp}?text=${encodeURIComponent(`Hi Ridge Hotel! I'd like to arrange the ${exp.name} experience.`)}`}
+                external
+                className="mt-8 w-full bg-forest-900 text-ivory-100 hover:bg-forest-800"
+              >
                 Arrange This Experience
               </MagneticButton>
-              <MagneticButton href="/booking" variant="ghost" className="mt-3 w-full !px-0 !py-0 text-center text-forest-950">
+              <MagneticButton
+                href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to book a stay.")}`}
+                external
+                variant="ghost"
+                className="mt-3 w-full !px-0 !py-0 text-center text-forest-950"
+              >
                 Combine With a Stay →
               </MagneticButton>
             </div>

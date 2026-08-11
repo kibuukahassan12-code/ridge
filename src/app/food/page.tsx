@@ -6,6 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import PageHero from "@/components/ui/PageHero";
 import { diningVenues, menuHighlights } from "@/data/dining";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Food, Dining & Cuisine — Ridge Hotel",
@@ -196,10 +197,19 @@ export default function FoodPage() {
             </p>
           </Reveal>
           <Reveal index={3} className="mt-10 flex flex-wrap justify-center gap-4">
-            <MagneticButton href="/contact" className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
+            <MagneticButton
+              href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to enquire about private garden dining.")}`}
+              external
+              className="bg-forest-900 text-ivory-100 hover:bg-forest-800"
+            >
               Enquire About Private Dining
             </MagneticButton>
-            <MagneticButton href="/booking" variant="ghost" className="!px-0 !py-0 text-forest-950">
+            <MagneticButton
+              href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to book a stay.")}`}
+              external
+              variant="ghost"
+              className="!px-0 !py-0 text-forest-950"
+            >
               Book Your Stay →
             </MagneticButton>
           </Reveal>

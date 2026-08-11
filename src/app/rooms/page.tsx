@@ -9,6 +9,7 @@ import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { rooms } from "@/data/rooms";
 import { media } from "@/data/media";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Rooms & Suites",
@@ -52,7 +53,12 @@ export default function RoomsPage() {
                       <MagneticButton href={`/rooms/${room.slug}`} className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
                         View Room <ArrowUpRight className="h-4 w-4" />
                       </MagneticButton>
-                      <MagneticButton href={`/booking?room=${room.slug}`} variant="ghost" className="!px-0 !py-0 text-forest-950">
+                      <MagneticButton
+                        href={`${site.contact.whatsapp}?text=${encodeURIComponent(`Hi Ridge Hotel! I'd like to book the ${room.name} ($${room.price}/night). Please share availability.`)}`}
+                        external
+                        variant="ghost"
+                        className="!px-0 !py-0 text-forest-950"
+                      >
                         Book This Room →
                       </MagneticButton>
                     </div>

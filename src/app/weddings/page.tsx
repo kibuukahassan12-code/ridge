@@ -65,7 +65,11 @@ export default function WeddingsPage() {
               </p>
             </Reveal>
             <Reveal index={4} className="mt-8">
-              <MagneticButton href="/contact" className="bg-forest-900 text-ivory-100 hover:bg-forest-800">
+              <MagneticButton
+                href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to enquire about hosting a wedding at your venue.")}`}
+                external
+                className="bg-forest-900 text-ivory-100 hover:bg-forest-800"
+              >
                 Enquire About Your Wedding
               </MagneticButton>
             </Reveal>
@@ -137,7 +141,11 @@ export default function WeddingsPage() {
             Call or WhatsApp {site.contact.phoneDisplay} or {site.contact.phoneDisplay2}, or email {site.contact.email}
           </p>
           <div className="mt-8">
-            <MagneticButton href="/contact" className="bg-gold-500 text-forest-950 hover:bg-gold-400">
+            <MagneticButton
+              href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to start planning a wedding at your venue.")}`}
+              external
+              className="bg-gold-500 text-forest-950 hover:bg-gold-400"
+            >
               Start Planning
             </MagneticButton>
           </div>

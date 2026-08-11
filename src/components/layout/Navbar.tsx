@@ -203,13 +203,15 @@ export default function Navbar() {
               <Phone className="h-3.5 w-3.5 text-gold-400" />
               Call
             </a>
-            <Link
-              href="/booking"
+            <a
+              href={site.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-forest-950 shadow-[0_4px_18px_rgba(200,162,74,0.3)] transition-all duration-300 hover:shadow-[0_6px_22px_rgba(200,162,74,0.45)]"
             >
               <Calendar className="h-3.5 w-3.5" />
               Book Stay
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu toggle */}
@@ -300,13 +302,15 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <Link
-                href="/booking"
+              <a
+                href={site.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-forest-950 shadow-lg"
               >
                 <Calendar className="h-4 w-4" />
                 Book Your Stay
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

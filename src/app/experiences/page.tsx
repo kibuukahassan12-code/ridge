@@ -8,6 +8,7 @@ import Kicker from "@/components/ui/Kicker";
 import Reveal from "@/components/ui/Reveal";
 import { experiences } from "@/data/experiences";
 import { media } from "@/data/media";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Discover Western Uganda",
@@ -71,9 +72,14 @@ export default function ExperiencesPage() {
             We arrange permits, licensed guides and private transport for every excursion above.
           </p>
           <div className="mt-8">
-            <Link href="/contact" className="text-sm font-semibold uppercase tracking-widest text-gold-400 hover:text-gold-300">
+            <a
+              href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like help planning my itinerary.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold uppercase tracking-widest text-gold-400 hover:text-gold-300"
+            >
               Contact Our Concierge →
-            </Link>
+            </a>
           </div>
         </Container>
       </section>

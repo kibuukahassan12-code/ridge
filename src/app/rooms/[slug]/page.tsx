@@ -117,7 +117,11 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
                 ${room.price} <span className="text-base font-sans text-forest-800/60">/ night</span>
               </p>
               <p className="mt-2 text-xs text-forest-800/50">Inclusive of breakfast and Wi-Fi</p>
-              <MagneticButton href={`/booking?room=${room.slug}`} className="mt-6 w-full bg-gold-500 text-forest-950 hover:bg-gold-400">
+              <MagneticButton
+                href={`${site.contact.whatsapp}?text=${encodeURIComponent(`Hi Ridge Hotel! I'd like to reserve the ${room.name} ($${room.price}/night). Please share availability.`)}`}
+                external
+                className="mt-6 w-full bg-gold-500 text-forest-950 hover:bg-gold-400"
+              >
                 Reserve This Room
               </MagneticButton>
               <p className="mt-4 text-center text-xs text-forest-800/50">

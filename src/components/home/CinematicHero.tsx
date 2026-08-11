@@ -5,6 +5,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { site } from "@/data/site";
 
 // ─── Main Hero Carousel (image-only) ────────────────────────────────────────
 const sceneImages: string[] = [
@@ -103,7 +104,8 @@ export default function CinematicHero() {
       <div className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 lg:px-16 lg:pb-14">
         <div className="mx-auto w-full max-w-[1440px]">
           <MagneticButton
-            href="/booking"
+            href={site.contact.whatsapp}
+            external
             className="bg-gold-500 text-forest-950 hover:bg-gold-400"
           >
             Book Your Stay

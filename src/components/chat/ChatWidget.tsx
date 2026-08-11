@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MessageSquare, Mic, Send, Sparkles, Volume2, VolumeX, X } from "lucide-react";
+import { MessageSquare, Mic, MicOff, Send, Sparkles, Volume2, VolumeX, X } from "lucide-react";
 import Image from "next/image";
 import { site } from "@/data/site";
 
@@ -36,7 +36,9 @@ export default function ChatWidget() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const [autoRead, setAutoRead] = useState(false);
+  const [voiceMode, setVoiceMode] = useState(false);
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const [voiceError, setVoiceError] = useState<string | null>(null);
   const hasOpenedRef = useRef(false);
@@ -45,6 +47,20 @@ export default function ChatWidget() {
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const autoSendRef = useRef(false);
   const finalTranscriptRef = useRef("");
+  const voiceModeRef = useRef(false);
+  const isLoadingRef = useRef(false);
+  const handleSendRef = useRef<(text?: string) => void>(() => {});
+  const startListeningRef = useRef<() => void>(() => {});
+  const isRestartingRef = useRef(false);
+
+  // Keep refs in sync with state (avoids stale closures in async callbacks).
+  useEffect(() => {
+    voiceModeRef.current = voiceMode;
+  }, [voiceMode]);
+
+  useEffect(() => {
+    isLoadingRef.current = isLoading;
+  }, [isLoading]);
 
   // ---------- Scroll to bottom ----------
   const scrollToBottom = useCallback(() => {
@@ -55,7 +71,7 @@ export default function ChatWidget() {
 
   // ---------- Voice output (text-to-speech) ----------
   const speak = useCallback(
-    (text: string, index?: number) => {
+    (text: string, index?: number, onEnd?: () => void) => {
       if (!isSpeechSynthesisSupported) return;
 
       // Strip any booking JSON or markdown-ish artifacts for cleaner speech.
@@ -83,9 +99,18 @@ export default function ChatWidget() {
       if (preferred) utterance.voice = preferred;
 
       if (index !== undefined) setSpeakingIndex(index);
+      setIsSpeaking(true);
 
-      utterance.onend = () => setSpeakingIndex(null);
-      utterance.onerror = () => setSpeakingIndex(null);
+      utterance.onend = () => {
+        setIsSpeaking(false);
+        setSpeakingIndex(null);
+        onEnd?.();
+      };
+      utterance.onerror = () => {
+        setIsSpeaking(false);
+        setSpeakingIndex(null);
+        onEnd?.();
+      };
 
       window.speechSynthesis.speak(utterance);
     },
@@ -96,6 +121,7 @@ export default function ChatWidget() {
     if (isSpeechSynthesisSupported) {
       window.speechSynthesis.cancel();
     }
+    setIsSpeaking(false);
     setSpeakingIndex(null);
   }, []);
 
@@ -119,7 +145,7 @@ export default function ChatWidget() {
 
     recognition.lang = "en-US";
     recognition.interimResults = true;
-    recognition.continuous = false;
+    recognition.continuous = true;
     recognition.maxAlternatives = 1;
 
     recognition.onstart = () => {
@@ -181,7 +207,18 @@ export default function ChatWidget() {
       const finalText = finalTranscriptRef.current.trim();
       if (finalText && autoSendRef.current) {
         autoSendRef.current = false;
-        handleSend(finalText);
+        handleSendRef.current(finalText);
+      } else if (voiceModeRef.current && !isRestartingRef.current) {
+        // In voice mode, restart listening after a short delay to keep the loop going.
+        // Use a guard flag to prevent overlapping restart calls.
+        isRestartingRef.current = true;
+        setTimeout(() => {
+          isRestartingRef.current = false;
+          if (voiceModeRef.current && !isLoadingRef.current) {
+            autoSendRef.current = true;
+            startListeningRef.current();
+          }
+        }, 800);
       }
     };
 
@@ -189,12 +226,18 @@ export default function ChatWidget() {
   }, [stopSpeaking]);
 
   const stopListening = useCallback(() => {
+    isRestartingRef.current = false;
     recognitionRef.current?.stop();
     recognitionRef.current = null;
     setIsListening(false);
   }, []);
 
   const handleMicClick = useCallback(() => {
+    // In voice mode, the mic button stops the hands-free loop.
+    if (voiceModeRef.current) {
+      stopVoiceMode();
+      return;
+    }
     if (isListening) {
       // Stop and auto-send what was captured.
       autoSendRef.current = true;
@@ -209,7 +252,7 @@ export default function ChatWidget() {
   const handleSend = useCallback(
     async (text?: string) => {
       const content = (text ?? input).trim();
-      if (!content || isLoading) return;
+      if (!content || isLoadingRef.current) return;
 
       const userMsg: Message = { role: "user", content };
       const nextMessages = [...messages, userMsg];
@@ -230,21 +273,82 @@ export default function ChatWidget() {
         setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
         scrollToBottom();
 
-        // Auto-read the assistant reply if voice output is enabled.
-        if (autoRead) {
-          speak(reply);
+        // Auto-read the assistant reply if voice output is enabled OR voice mode is active.
+        if (autoRead || voiceModeRef.current) {
+          speak(reply, undefined, () => {
+            // In voice mode, automatically start listening again after speaking.
+            if (voiceModeRef.current) {
+              setTimeout(() => {
+                if (voiceModeRef.current && !isLoadingRef.current) {
+                  autoSendRef.current = true;
+                  startListeningRef.current();
+                }
+              }, 300);
+            }
+          });
         }
       } catch {
         scrollToBottom();
         const fallback = `I'm having trouble connecting. Please contact us directly on WhatsApp at ${site.contact.phoneDisplay} or email ${site.contact.reservationsEmail}.`;
         setMessages((prev) => [...prev, { role: "assistant", content: fallback }]);
-        if (autoRead) speak(fallback);
+        if (autoRead || voiceModeRef.current) {
+          speak(fallback, undefined, () => {
+            if (voiceModeRef.current) {
+              setTimeout(() => {
+                if (voiceModeRef.current && !isLoadingRef.current) {
+                  autoSendRef.current = true;
+                  startListeningRef.current();
+                }
+              }, 300);
+            }
+          });
+        }
       } finally {
         setIsLoading(false);
       }
     },
-    [input, isLoading, messages, autoRead, speak, scrollToBottom]
+    [input, messages, autoRead, speak, scrollToBottom]
   );
+
+  // Set refs to avoid circular dependencies between startListening and handleSend.
+  useEffect(() => {
+    handleSendRef.current = handleSend;
+  }, [handleSend]);
+
+  useEffect(() => {
+    startListeningRef.current = startListening;
+  }, [startListening]);
+
+  // ---------- Voice mode (hands-free conversation loop) ----------
+  const startVoiceMode = useCallback(() => {
+    if (!isSpeechRecognitionSupported || !isSpeechSynthesisSupported) {
+      setVoiceError(
+        "Voice chat requires a browser with both speech recognition and speech synthesis support. Please try Chrome, Edge, or Safari."
+      );
+      setTimeout(() => setVoiceError(null), 5000);
+      return;
+    }
+
+    voiceModeRef.current = true;
+    setVoiceMode(true);
+    setAutoRead(true); // Force auto-read in voice mode.
+    setVoiceError(null);
+
+    // Start listening after a short delay to let the UI update.
+    setTimeout(() => {
+      if (voiceModeRef.current) {
+        autoSendRef.current = true;
+        startListeningRef.current();
+      }
+    }, 300);
+  }, []);
+
+  const stopVoiceMode = useCallback(() => {
+    voiceModeRef.current = false;
+    setVoiceMode(false);
+    stopListening();
+    stopSpeaking();
+  }, [stopListening, stopSpeaking]);
 
   // ---------- Toggle chat ----------
   const handleToggle = useCallback(() => {
@@ -257,11 +361,12 @@ export default function ChatWidget() {
         setMessages([WELCOME_MESSAGE]);
       }
     } else {
+      stopVoiceMode();
       stopListening();
       stopSpeaking();
     }
     scrollToBottom();
-  }, [isOpen, scrollToBottom, stopListening, stopSpeaking]);
+  }, [isOpen, scrollToBottom, stopListening, stopSpeaking, stopVoiceMode]);
 
   // ---------- Speaker button ----------
   const handleSpeakerClick = useCallback(
@@ -278,6 +383,7 @@ export default function ChatWidget() {
   // ---------- Cleanup on unmount ----------
   useEffect(() => {
     return () => {
+      voiceModeRef.current = false;
       stopListening();
       stopSpeaking();
     };
@@ -299,7 +405,7 @@ export default function ChatWidget() {
       <button
         onClick={handleToggle}
         aria-label={isOpen ? "Close chat" : "Open chat assistant"}
-        className="fixed bottom-6 right-6 z-[80] flex h-14 w-14 items-center justify-center rounded-full bg-forest-900 text-ivory-100 shadow-2xl shadow-forest-950/40 transition-all duration-300 hover:scale-105 hover:bg-forest-800"
+        className="fixed bottom-6 right-6 z-[80] flex h-14 w-14 items-center justify-center rounded-full bg-forest-900 text-ivory-100 shadow-2xl shadow-forest-950/40 transition-all duration-300 hover:scale-105 hover:bg-forest-800 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 focus:ring-offset-forest-950"
       >
         {isOpen ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
       </button>
@@ -321,7 +427,9 @@ export default function ChatWidget() {
             </div>
             <div className="flex-1">
               <p className="font-display text-base font-medium leading-tight">Ridge Concierge</p>
-              <p className="text-[11px] text-ivory-100/60">AI assistant · Online</p>
+              <p className="text-[11px] text-ivory-100/60">
+                {voiceMode ? "Voice chat active" : "AI assistant · Online"}
+              </p>
             </div>
             <div className="flex items-center gap-2">
               {isSpeechSynthesisSupported ? (
@@ -338,6 +446,43 @@ export default function ChatWidget() {
               ) : null}
               <Sparkles className="h-4 w-4 text-gold-400/70" />
             </div>
+          </div>
+
+          {/* Voice mode banner / Start Voice Chat button */}
+          <div className="border-b border-ivory-100/10 px-4 py-2.5">
+            {voiceMode ? (
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-400 opacity-75" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold-500" />
+                  </span>
+                  <p className="text-xs text-gold-300">
+                    {isListening
+                      ? "Listening… speak now"
+                      : isLoading
+                        ? "Thinking…"
+                        : isSpeaking
+                          ? "Speaking…"
+                          : "Voice chat active"}
+                  </p>
+                </div>
+                <button
+                  onClick={stopVoiceMode}
+                  className="flex items-center gap-1 rounded-full bg-ivory-100/10 px-2.5 py-1 text-[11px] text-ivory-100/80 transition-colors hover:bg-ivory-100/20 hover:text-ivory-100 focus:outline-none focus:ring-1 focus:ring-gold-400"
+                >
+                  <MicOff className="h-3 w-3" /> Stop
+                </button>
+              </div>
+            ) : isSpeechRecognitionSupported && isSpeechSynthesisSupported ? (
+              <button
+                onClick={startVoiceMode}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-gold-500/15 py-2 text-xs font-medium text-gold-300 transition-colors hover:bg-gold-500/25 focus:outline-none focus:ring-2 focus:ring-gold-400"
+              >
+                <Mic className="h-3.5 w-3.5" />
+                Start Voice Chat — talk hands-free
+              </button>
+            ) : null}
           </div>
 
           {/* Messages */}
@@ -357,7 +502,7 @@ export default function ChatWidget() {
                       onClick={() => handleSpeakerClick(i, msg.content)}
                       aria-label={speakingIndex === i ? "Stop reading" : "Read message aloud"}
                       title={speakingIndex === i ? "Stop reading" : "Read message aloud"}
-                      className={`mt-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] transition-colors ${
+                      className={`mt-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] transition-colors focus:outline-none focus:ring-1 focus:ring-gold-400 ${
                         speakingIndex === i
                           ? "bg-gold-500 text-forest-950"
                           : "bg-ivory-100/10 text-ivory-100/70 hover:bg-ivory-100/20 hover:text-ivory-100"
@@ -395,8 +540,8 @@ export default function ChatWidget() {
             </div>
           ) : null}
 
-          {/* Listening indicator */}
-          {isListening ? (
+          {/* Listening indicator (only for one-off mic use, not voice mode) */}
+          {isListening && !voiceMode ? (
             <div className="flex items-center justify-center gap-2 border-t border-ivory-100/10 bg-forest-900/60 px-4 py-2">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
@@ -445,7 +590,7 @@ export default function ChatWidget() {
                 onClick={handleMicClick}
                 aria-label={isListening ? "Stop recording" : "Speak your message"}
                 title={isListening ? "Stop recording" : "Speak your message"}
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-gold-400 ${
                   isListening
                     ? "animate-pulse bg-red-500 text-white"
                     : "bg-ivory-100/10 text-ivory-100/70 hover:bg-ivory-100/20 hover:text-ivory-100"
@@ -458,7 +603,7 @@ export default function ChatWidget() {
               type="submit"
               disabled={!input.trim() || isLoading}
               aria-label="Send message"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-500 text-forest-950 transition-colors hover:bg-gold-400 disabled:opacity-40"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-500 text-forest-950 transition-colors hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-forest-950 focus:ring-offset-2 focus:ring-offset-forest-950 disabled:opacity-40"
             >
               <Send className="h-4 w-4" />
             </button>

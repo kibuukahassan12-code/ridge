@@ -135,7 +135,11 @@ export default function ConferencePage() {
                 </li>
               ))}
             </ul>
-            <MagneticButton href="/contact" className="mt-8 w-full bg-forest-900 text-ivory-100 hover:bg-forest-800">
+            <MagneticButton
+              href={`${site.contact.whatsapp}?text=${encodeURIComponent("Hi Ridge Hotel! I'd like to request a corporate quote for a conference or meeting.")}`}
+              external
+              className="mt-8 w-full bg-forest-900 text-ivory-100 hover:bg-forest-800"
+            >
               Request a Corporate Quote
             </MagneticButton>
           </div>

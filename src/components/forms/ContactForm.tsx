@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import { site } from "@/data/site";
+import { WhatsAppIcon } from "@/components/ui/SocialIcons";
 
 const schema = z.object({
   fullName: z.string().min(2, "Please enter your full name"),
@@ -28,27 +30,39 @@ export default function ContactForm() {
 
   async function onSubmit(values: FormValues) {
     setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error("failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
+
+    // Build a formatted WhatsApp message with all client details
+    const lines = [
+      "🏨 *New Enquiry — Ridge Hotel*",
+      "",
+      `👤 *Name:* ${values.fullName}`,
+      `📧 *Email:* ${values.email}`,
+      values.phone ? `📞 *Phone:* ${values.phone}` : null,
+      values.category ? `📋 *Enquiry Type:* ${values.category}` : null,
+      values.subject ? `📝 *Subject:* ${values.subject}` : null,
+      `💬 *Message:* ${values.message}`,
+    ].filter(Boolean);
+
+    const message = lines.join("\n");
+    const whatsappUrl = `${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+
+    // Show success state first, then open WhatsApp after a brief delay
+    setStatus("success");
+    reset();
+
+    // Open WhatsApp after a short delay so the user sees the success message
+    setTimeout(() => {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }, 600);
   }
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-gold-400/40 bg-gold-300/10 p-10 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-gold-400/40 bg-gold-300/10 p-10 text-center">
         <CheckCircle2 className="h-10 w-10 text-gold-600" />
         <h3 className="font-display text-2xl text-forest-950">Message Sent</h3>
         <p className="max-w-md text-sm text-forest-800/75">
-          Thank you for reaching out. A member of the Ridge Hotel team will respond within one business day.
+          Thank you for reaching out. A member of the Ridge Hotel team will respond within one business day. Opening WhatsApp for instant response...
         </p>
       </div>
     );

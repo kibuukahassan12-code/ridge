@@ -27,7 +27,7 @@ export default function BookingCTA() {
           </p>
         </Reveal>
         <Reveal index={3} className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <MagneticButton href="/booking" className="bg-gold-500 text-forest-950 hover:bg-gold-400">
+          <MagneticButton href={site.contact.whatsapp} external className="bg-gold-500 text-forest-950 hover:bg-gold-400">
             Book Your Stay
           </MagneticButton>
           <MagneticButton href={site.contact.whatsapp} variant="outline" className="border-ivory-100/40" external>

@@ -69,22 +69,14 @@ export default function BookingForm({ defaultRoom }: { defaultRoom?: string }) {
     const message = lines.join("\n");
     const whatsappUrl = `${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
 
-    // Redirect to WhatsApp with the details pre-filled
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    // Show success state first, then open WhatsApp after a brief delay
+    setStatus("success");
+    reset();
 
-    // Also submit to the API for record-keeping (best effort)
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error("failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
+    // Open WhatsApp after a short delay so the user sees the success message
+    setTimeout(() => {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }, 600);
   }
 
   if (status === "success") {
@@ -93,17 +85,8 @@ export default function BookingForm({ defaultRoom }: { defaultRoom?: string }) {
         <CheckCircle2 className="h-10 w-10 text-gold-600" />
         <h3 className="font-display text-2xl text-forest-950">Enquiry Received</h3>
         <p className="max-w-md text-sm text-forest-800/75">
-          Thank you — our reservations team will confirm availability and reply within 24 hours. For an instant
-          response, message us on WhatsApp.
+          Thank you — our reservations team will confirm availability and reply within 24 hours. Opening WhatsApp for instant response...
         </p>
-        <a
-          href={site.contact.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-forest-900 px-6 py-3 text-sm font-semibold text-ivory-100"
-        >
-          <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
-        </a>
       </div>
     );
   }
